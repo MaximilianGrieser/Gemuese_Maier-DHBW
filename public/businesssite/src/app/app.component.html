@@ -12,33 +12,33 @@
     </button>
   </mat-toolbar>
   <div class="header-lower">
-    <button mat-raised-button class="navButton">
+    <button mat-raised-button [routerLink]="['/bestand']" class="navButton">
       Bestand
     </button>
-    <button mat-raised-button class="navButton">
+    <button mat-raised-button [routerLink]="['/produkte']" class="navButton">
       Produkte
     </button>
-    <button mat-raised-button class="navButton">
+    <button mat-raised-button [routerLink]="['/lager']" class="navButton">
       Lager
     </button>
-    <button mat-raised-button class="navButton">
+    <button mat-raised-button [routerLink]="['/lieferanten']" class="navButton">
       Lieferanten
     </button>
-    <button mat-raised-button class="navButton">
+    <button mat-raised-button [routerLink]="['/lieferungen']" class="navButton">
       Lieferungen
     </button>
-    <button mat-raised-button class="navButton">
+    <button mat-raised-button [routerLink]="['/kunden']" class="navButton">
       Kunden
     </button>
-    <button mat-raised-button class="navButton">
+    <button mat-raised-button [routerLink]="['/produzenten']" class="navButton">
       Produzenten
     </button>
-    <button mat-raised-button class="navButton">
+    <button mat-raised-button [routerLink]="['/informationen']" class="navButton">
       <mat-icon>info</mat-icon>
     </button>
   </div>
 
   <div class="content">
-    
+    <router-outlet></router-outlet>
   </div>
 </main>
