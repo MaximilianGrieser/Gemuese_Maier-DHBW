@@ -11,6 +11,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { BestandComponent } from './bestand/bestand.component';
@@ -21,11 +23,10 @@ import { LieferungenComponent } from './lieferungen/lieferungen.component';
 import { KundenComponent } from './kunden/kunden.component';
 import { ProduzentenComponent } from './produzenten/produzenten.component';
 import { InformationenComponent } from './informationen/informationen.component';
-
-import { AppRoutingModule } from './app-routing.module';
 import { ErrorComponent } from './error/error.component';
 
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +53,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatListModule,
     MatTableModule,
     AppRoutingModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule
+  ],
+  exports: [ 
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
