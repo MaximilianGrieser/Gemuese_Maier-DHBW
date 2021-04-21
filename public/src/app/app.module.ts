@@ -25,6 +25,7 @@ import { InformationenComponent } from './informationen/informationen.component'
 import { AppRoutingModule } from './app-routing.module';
 import { ErrorComponent } from './error/error.component';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ErrorComponent } from './error/error.component';
     MatIconModule,
     MatListModule,
     MatTableModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
