@@ -9,10 +9,6 @@ export interface PeriodicElement {
   Anzahl: number;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {Bezeichnung: "Gurke", Kategorie: "Gemuese", Regal: 1, Haltbar: 2, Anzahl: 2}
-];
-
 @Component({
   selector: 'app-bestand',
   templateUrl: './bestand.component.html',
@@ -26,12 +22,16 @@ export class BestandComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ELEMENT_DATA: PeriodicElement[] = [
+    {Bezeichnung: "Gurke", Kategorie: "Gemuese", Regal: 1, Haltbar: 2, Anzahl: 2}
+  ];
+  
+
   displayedColumns: string[] = ['Bezeichnung', 'Kategorie', 'Regal', 'Haltbar', 'Anzahl'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
 }
