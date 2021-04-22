@@ -9,7 +9,7 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {Name: 'MysticFalls Gruenderfarm', KundenNr: 1864, Anschrift: 'Wickery Bridge 2, Mystic Falls', Ansprechpartner: 'Carol Lockwood'}
+  {Name: 'Saltzmann Markt', KundenNr: 1864, Anschrift: 'Nackarstrasse 134, Stuttgart', Ansprechpartner: 'Alaric Saltzmann'}
 ];
 
 @Component({
