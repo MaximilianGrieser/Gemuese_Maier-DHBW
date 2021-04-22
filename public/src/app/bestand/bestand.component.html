@@ -1,32 +1,63 @@
-<mat-form-field>
+<div class="body">
+  <mat-form-field class="table-filter">
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
   </mat-form-field>
+
+  <div class="table-input-group">
+    <mat-form-field class="table-input">
+      <mat-label>Bezeichnung</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
+    <mat-form-field class="table-input">
+      <mat-label>Kategorie</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
+
+    <mat-form-field class="table-input">
+      <mat-label>Regal</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
+
+    <mat-form-field class="table-input">
+      <mat-label>Haltbar bis</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
+    <mat-form-field class="table-input">
+      <mat-label>Anzahl</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+  </div>
   
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    <ng-container matColumnDef="Bezeichnung">
+      <th mat-header-cell *matHeaderCellDef> Bezeichnung </th>
+      <td mat-cell *matCellDef="let element"> {{element.Bezeichnung}} </td>
     </ng-container>
   
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    <ng-container matColumnDef="Kategorie">
+      <th mat-header-cell *matHeaderCellDef> Kategorie </th>
+      <td mat-cell *matCellDef="let element"> {{element.Kategorie}} </td>
     </ng-container>
   
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
-      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+    <ng-container matColumnDef="Regal">
+      <th mat-header-cell *matHeaderCellDef> Regal </th>
+      <td mat-cell *matCellDef="let element"> {{element.Regal}} </td>
     </ng-container>
   
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef> Symbol </th>
-      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    <ng-container matColumnDef="Haltbar">
+      <th mat-header-cell *matHeaderCellDef> Haltbar bis </th>
+      <td mat-cell *matCellDef="let element"> {{element.Haltbar}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Anzahl">
+      <th mat-header-cell *matHeaderCellDef> Anzahl </th>
+      <td mat-cell *matCellDef="let element"> {{element.Anzahl}} </td>
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -37,4 +68,21 @@
       <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
     </tr>
   </table>
+
+  <div class="buttons">
+    <button mat-raised-button class="Button">
+      Bestand Hinzufügen
+    </button>
+    <button mat-raised-button class="Button">
+      Bestand Bearbeiten
+    </button>
+    <button mat-raised-button class="Button">
+      Bestand Löschen
+    </button>
+    <button mat-raised-button class="Button">
+      Too Good To Go
+    </button>
+  </div>
+
+</div>
   

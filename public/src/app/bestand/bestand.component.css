@@ -1,8 +1,36 @@
-table {
-  width: 100%;
+div.body{
+  padding: 2em ;
 }
 
-.mat-form-field {
+table {
+  color: green;
+  float: left;
+  width: 75%;
+}
+
+.table-input-group{
+  width: 100%;
+  height: 5em;
+}
+
+.table-input{
+  width: 7em;
+}
+
+
+.Button {
+  margin: auto;
+  margin-top: 1em;
+  width: 10em;
+  height: 4em;
+  font-family:Calibri;
+  font-size: 16px;
+  color: white; /* white wenn im Fenster aktiv */
+  background-color: green; /* green wenn im Fenster aktiv */
+  display: block;
+}
+
+.table-filter {
   font-size: 14px;
   width: 100%;
 }
