@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 
+
 export interface PeriodicElement {
   Datum: string;
-  Produzent: string;
+  Kunde: string;
   Produkt: string;
   Menge: number;
   Preis: number;
@@ -11,22 +12,22 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {Datum: '29.03.2021', Produzent: 'MysticFalls Gruenderfarm', Produkt: 'Eisenkraut', Menge: 5, Preis: 90, Lieferschein: '29-03-21'}
+  {Datum: '21.03.2021', Kunde: 'Salvators Shop', Produkt: 'Erdnuesse', Menge: 4, Preis: 5, Lieferschein: '21-03-21'}
 ];
 
 @Component({
-  selector: 'app-lieferungen',
-  templateUrl: './lieferungen.component.html',
-  styleUrls: ['./lieferungen.component.css']
+  selector: 'app-aus-lieferungen',
+  templateUrl: './aus-lieferungen.component.html',
+  styleUrls: ['./aus-lieferungen.component.css']
 })
-export class LieferungenComponent implements OnInit {
+export class AusLieferungenComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  displayedColumns: string[] = ['Datum', 'Produzent', 'Produkt', 'Menge', 'Preis', 'Lieferschein'];
+  displayedColumns: string[] = ['Datum', 'Kunde', 'Produkt', 'Menge', 'Preis', 'Lieferschein'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   applyFilter(event: Event) {
