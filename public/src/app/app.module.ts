@@ -26,6 +26,7 @@ import { InformationenComponent } from './informationen/informationen.component'
 import { ErrorComponent } from './error/error.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { AusLieferungenComponent } from './aus-lieferungen/aus-lieferungen.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { AppRoutingModule } from './app-routing.module';
     KundenComponent,
     ProduzentenComponent,
     InformationenComponent,
-    ErrorComponent
+    ErrorComponent,
+    AusLieferungenComponent
   ],
   imports: [
     BrowserModule,

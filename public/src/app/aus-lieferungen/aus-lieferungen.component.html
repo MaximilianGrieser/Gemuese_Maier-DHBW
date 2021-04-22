@@ -20,7 +20,7 @@
         </mat-form-field>
 
         <mat-form-field class="table-input">
-            <mat-label>Produzent</mat-label>
+            <mat-label>Kunde</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
         </mat-form-field>
 
@@ -54,9 +54,9 @@
             <td mat-cell *matCellDef="let element"> {{element.Datum}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="Produzent">
-            <th mat-header-cell *matHeaderCellDef> Produzent </th>
-            <td mat-cell *matCellDef="let element"> {{element.Produzent}} </td>
+        <ng-container matColumnDef="Kunde">
+            <th mat-header-cell *matHeaderCellDef> Kunde </th>
+            <td mat-cell *matCellDef="let element"> {{element.Kunde}} </td>
         </ng-container>
 
         <ng-container matColumnDef="Produkt">
@@ -99,7 +99,7 @@
             Lieferung Löschen
         </button>
         <button mat-raised-button class="Button">
-            Lieferschein einsehen
+            Lieferschein erstellen
         </button>
     </div>
 

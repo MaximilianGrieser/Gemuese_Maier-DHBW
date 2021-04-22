@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AusLieferungenComponent } from './aus-lieferungen/aus-lieferungen.component';
 import { BestandComponent } from './bestand/bestand.component';
 import { ProdukteComponent } from './produkte/produkte.component';
 import { LagerComponent } from './lager/lager.component';
@@ -15,6 +16,7 @@ import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/bestand', pathMatch: 'full' },
+  { path: 'ausLieferungen', component: AusLieferungenComponent },
   { path: 'bestand', component: BestandComponent },
   { path: 'produkte', component: ProdukteComponent },
   { path: 'lager', component: LagerComponent },
