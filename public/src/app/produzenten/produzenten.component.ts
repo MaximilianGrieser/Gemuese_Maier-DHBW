@@ -27,6 +27,10 @@ export class ProduzentenComponent implements OnInit {
   displayedColumns: string[] = ['Name', 'Produzenten-Nr.', 'Anschrift', 'Ansprechpartner'];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
+  ngOnDestroy(){
+    localStorage.setItem("ProduzentData", JSON.stringify(this.ELEMENT_DATA))
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

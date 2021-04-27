@@ -26,6 +26,10 @@ export class LieferantenComponent implements OnInit {
   displayedColumns: string[] = ['Name', 'Lieferanten-Nr.', 'Anschrift', 'Ansprechpartner'];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
+  ngOnDestroy(){
+    localStorage.setItem("LieferantData", JSON.stringify(this.ELEMENT_DATA))
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

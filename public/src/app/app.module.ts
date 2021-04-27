@@ -13,6 +13,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { BestandComponent } from './bestand/bestand.component';
@@ -56,7 +57,8 @@ import { AusLieferungenComponent } from './aus-lieferungen/aus-lieferungen.compo
     MatTableModule,
     AppRoutingModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
   exports: [ 
     MatFormFieldModule,

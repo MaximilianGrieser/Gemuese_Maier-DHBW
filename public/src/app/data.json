@@ -5,8 +5,8 @@
                 "Herkunft": "Deutschland",
                 "Kategorie": "Gemuese",
                 "Verkaufspreis": 5,
-                "Lieferant": "Thomas Müller",
-                "Produzent": "Theos Erdhof",
+                "Lieferant": "Siren Express",
+                "Produzent": "Ulf",
                 "Anzahl": 2
             },
             {
@@ -14,8 +14,8 @@
                 "Herkunft": "Deutschland",
                 "Kategorie": "Obst",
                 "Verkaufspreis": 5,
-                "Lieferant": "Ali Baba",
-                "Produzent": "Muhamad Ali",
+                "Lieferant": "Ali",
+                "Produzent": "MysticFalls Gruenderfarm",
                 "Anzahl": 2
             }],
         "Lieferanten":[{

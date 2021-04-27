@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Lieferant } from '../lieferanten/lieferanten.component';
+import { Produzent } from '../produzenten/produzenten.component';
 
 export interface Produkt {
   Bezeichnung: string,
@@ -9,6 +11,10 @@ export interface Produkt {
   Lieferant: string,
   Produzent: string,
   Anzahl: number
+}
+
+interface DropDown {
+  value: string;
 }
 
 @Component({
@@ -26,14 +32,29 @@ export class ProdukteComponent implements OnInit {
   iProduzent: string;
   iAnzahl: number;
   edit_index: number;
-
   selected: Produkt;
 
   ELEMENT_DATA: Produkt[] = [];
+  Lieferanten: Lieferant[] = [];
+  DDLief: DropDown[] = [];
+  Produzenten: Produzent[] = [];
+  DDProd: DropDown[] = [];
+
+  ddProd: string;
+  ddLief: string;
+
   constructor() { }
 
   ngOnInit(): void {
     this.ELEMENT_DATA = JSON.parse(localStorage.getItem("ProduktData"));
+    this.Lieferanten = JSON.parse(localStorage.getItem("LieferantData"));
+    this.Lieferanten.forEach(lief => {
+      this.DDLief.push({value: lief.Name})
+    })
+    this.Produzenten = JSON.parse(localStorage.getItem("ProduzentData"));
+    this.Produzenten.forEach(prod => {
+      this.DDProd.push({value: prod.Name})
+    })
     this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
   }
 
@@ -50,11 +71,11 @@ export class ProdukteComponent implements OnInit {
   changeVerkaufspreis(event: Event) {
     this.iVerkaufspreis = parseInt((event.target as HTMLInputElement).value);
   }
-  changeLieferant(event: Event) {
-    this.iLieferant = (event.target as HTMLInputElement).value;
+  changeLieferant(Lief: string) {
+    this.iLieferant = Lief; 
   }
-  changeProduzent(event: Event) {
-    this.iProduzent = (event.target as HTMLInputElement).value;
+  changeProduzent(Prod: string) {
+    this.iProduzent = Prod;
   }
   changeAnzahl(event: Event) {
     this.iAnzahl = parseInt((event.target as HTMLInputElement).value);
@@ -103,12 +124,16 @@ export class ProdukteComponent implements OnInit {
     this.iKategorie = row.Kategorie;
     (document.getElementById("i-vp") as HTMLInputElement).value = row.Verkaufspreis.toString();
     this.iVerkaufspreis = row.Verkaufspreis;
-    (document.getElementById("i-lief") as HTMLInputElement).value = row.Lieferant;
+    this.ddLief = row.Lieferant
     this.iLieferant = row.Lieferant;
-    (document.getElementById("i-prod") as HTMLInputElement).value = row.Produzent;
+    this.ddProd = row.Produzent;
     this.iProduzent = row.Produzent;
     (document.getElementById("i-anz") as HTMLInputElement).value = row.Anzahl.toString();
     this.iAnzahl = row.Anzahl;
+  }
+
+  ngOnDestroy(){
+    localStorage.setItem("ProduktData", JSON.stringify(this.ELEMENT_DATA))
   }
 
   displayedColumns: string[] = ['Bezeichnung', 'Herkunft', 'Kategorie', 'Verkaufspreis', 'Lieferant', 'Produzent', 'Anzahl'];

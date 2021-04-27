@@ -24,15 +24,23 @@
         <mat-label>Verkaufspreis</mat-label>
         <input matInput id="i-vp" (keyup)="changeVerkaufspreis($event)" placeholder="Verkaufspreis" #input>
       </mat-form-field>
-  
+
       <mat-form-field class="table-input">
         <mat-label>Lieferant</mat-label>
-        <input matInput id="i-lief" (keyup)="changeLieferant($event)" placeholder="Lieferant" #input>
+        <mat-select id="i-lief" (selectionChange)="changeLieferant($event.value)" [(value)]="ddLief">
+          <mat-option *ngFor="let element of DDLief" [value]="element.value">
+            {{element.value}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
 
       <mat-form-field class="table-input">
         <mat-label>Produzent</mat-label>
-        <input matInput id="i-prod" (keyup)="changeProduzent($event)" placeholder="Produzent" #input>
+        <mat-select id="i-prod" (selectionChange)="changeProduzent($event.value)" [(value)]="ddProd">
+          <mat-option *ngFor="let element of DDProd" [value]="element.value">
+            {{element.value}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
 
       <mat-form-field class="table-input">
