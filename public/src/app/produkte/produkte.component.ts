@@ -4,7 +4,7 @@ import { Lieferant } from '../lieferanten/lieferanten.component';
 import { Produzent } from '../produzenten/produzenten.component';
 
 /**
- * defines a "Produkt" object (entry in the table)
+ * defines a 'Produkt' object (entry in the table)
  */
 export interface Produkt {
   Bezeichnung: string;
@@ -39,6 +39,7 @@ export class ProdukteComponent implements OnInit {
   iAnzahl: number;
   editIndex: number;
   selected: Produkt;
+  dataSource = new MatTableDataSource();
 
   ELEMENT_DATA: Produkt[] = [];
   Lieferanten: Lieferant[] = [];
@@ -49,10 +50,13 @@ export class ProdukteComponent implements OnInit {
   ddProd: string;
   ddLief: string;
 
+  displayedColumns: string[] = ['Bezeichnung', 'Herkunft', 'Kategorie', 'Verkaufspreis', 'Lieferant',
+    'Produzent', 'Anzahl'];
+
   constructor() { }
 
   /**
-   * loads data from local storage and stores it in an array when component is loaded
+   * function to load data from local storage and stores it in an array when component is loaded
    */
   ngOnInit(): void {
     this.ELEMENT_DATA = JSON.parse(localStorage.getItem('ProduktData'));
@@ -71,33 +75,33 @@ export class ProdukteComponent implements OnInit {
    * functions to get data from the table input fields (text and drop-down)
    * function names indicate which field is read
    */
-  changeBezeichnung(event: Event) {
+  changeBezeichnung(event: Event): void {
     this.iBezeichnung = (event.target as HTMLInputElement).value;
     console.log(this.iBezeichnung);
   }
-  changeHerkunft(event: Event) {
+  changeHerkunft(event: Event): void {
     this.iHerkunft = (event.target as HTMLInputElement).value;
   }
-  changeKategorie(event: Event) {
+  changeKategorie(event: Event): void {
     this.iKategorie = (event.target as HTMLInputElement).value;
   }
-  changeVerkaufspreis(event: Event) {
-    this.iVerkaufspreis = parseInt((event.target as HTMLInputElement).value);
+  changeVerkaufspreis(event: Event): void {
+    this.iVerkaufspreis = parseInt((event.target as HTMLInputElement).value, 10);
   }
-  changeLieferant(Lief: string) {
+  changeLieferant(Lief: string): void {
     this.iLieferant = Lief;
   }
-  changeProduzent(Prod: string) {
+  changeProduzent(Prod: string): void {
     this.iProduzent = Prod;
   }
-  changeAnzahl(event: Event) {
-    this.iAnzahl = parseInt((event.target as HTMLInputElement).value);
+  changeAnzahl(event: Event): void {
+    this.iAnzahl = parseInt((event.target as HTMLInputElement).value, 10);
   }
 
   /**
    * function to add the data entered by the user in the table form to the table
    */
-  add() {
+  add(): void {
     this.ELEMENT_DATA.push(
     {Bezeichnung: this.iBezeichnung, Herkunft: this.iHerkunft, Kategorie: this.iKategorie,
       Verkaufspreis: this.iVerkaufspreis, Lieferant: this.iLieferant, Produzent: this.iProduzent, Anzahl: this.iAnzahl});
@@ -105,15 +109,20 @@ export class ProdukteComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
   }
 
-  edit() {
+  /**
+   * function to modify an entry
+   * first the entry that is selected by the user is searched in the array cwith table entries
+   * second, the data of the entry is overwritten with the data from the input field
+   */
+  edit(): void {
     this.editIndex = this.ELEMENT_DATA.findIndex(x => (
-      x.Bezeichnung == this.selected.Bezeichnung &&
-      x.Herkunft == this.selected.Herkunft &&
-      x.Kategorie == this.selected.Kategorie &&
-      x.Verkaufspreis == this.selected.Verkaufspreis &&
-      x.Lieferant == this.selected.Lieferant &&
-      x.Produzent == this.selected.Produzent &&
-      x.Anzahl == this.selected.Anzahl)
+      x.Bezeichnung === this.selected.Bezeichnung &&
+      x.Herkunft === this.selected.Herkunft &&
+      x.Kategorie === this.selected.Kategorie &&
+      x.Verkaufspreis === this.selected.Verkaufspreis &&
+      x.Lieferant === this.selected.Lieferant &&
+      x.Produzent === this.selected.Produzent &&
+      x.Anzahl === this.selected.Anzahl)
     );
 
     this.ELEMENT_DATA[this.editIndex].Bezeichnung = this.iBezeichnung;
@@ -126,19 +135,19 @@ export class ProdukteComponent implements OnInit {
   }
 
   /**
-   * delete entry that is selcted by the user
+   * function to delete an entry that is selected by the user
    */
-  delete() {
+  delete(): void {
     this.ELEMENT_DATA = this.ELEMENT_DATA.filter(prod => prod !== this.selected);
     this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
     console.log('Deleted ' + this.selected);
   }
 
   /**
-   * gets entry of the table that was selected by the user
+   * function to get an entry of the table that was selected by the user
    * @param row is the row selected by the user
    */
-  getRecord(row: Produkt) {
+  getRecord(row: Produkt): void {
     this.selected = row;
     (document.getElementById('i-bez') as HTMLInputElement).value = row.Bezeichnung;
     this.iBezeichnung = row.Bezeichnung;
@@ -157,17 +166,17 @@ export class ProdukteComponent implements OnInit {
   }
 
   /**
-   * loads data from array in local storage (saves changes in the data)
+   * function that loads data from array in local storage (saves changes in the data)
    */
-  ngOnDestroy(){
-    localStorage.setItem("ProduktData", JSON.stringify(this.ELEMENT_DATA))
+  // tslint:disable-next-line:use-lifecycle-interface
+  ngOnDestroy(): void {
+    localStorage.setItem('ProduktData', JSON.stringify(this.ELEMENT_DATA));
   }
 
   /**
-   * called when user searches for an entry in the table
-   * @param event
+   * function is called when user searches for an entry in the table
    */
-  applyFilter(event: Event) {
+  applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }

@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
 export interface PeriodicElement {
-  Bezeichnung: string,
-  Kategorie: string,
-  Regal: number,
-  Haltbar: number,
+  Bezeichnung: string;
+  Kategorie: string;
+  Regal: number;
+  Haltbar: number;
   Anzahl: number;
 }
 
@@ -19,18 +19,21 @@ export class BestandComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
   ELEMENT_DATA: PeriodicElement[] = [
-    {Bezeichnung: "Gurke", Kategorie: "Gemuese", Regal: 1, Haltbar: 2, Anzahl: 2}
+    {Bezeichnung: 'Gurke', Kategorie: 'Gemuese', Regal: 1, Haltbar: 2, Anzahl: 2}
   ];
-  
+
 
   displayedColumns: string[] = ['Bezeichnung', 'Kategorie', 'Regal', 'Haltbar', 'Anzahl'];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
-  applyFilter(event: Event) {
+  ngOnInit(): void {
+  }
+
+  /**
+   * function is called when user searches for an entry in the table
+   */
+  applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
