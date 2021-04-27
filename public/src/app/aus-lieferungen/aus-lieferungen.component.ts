@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 
 /**
- * defines the columns of the table "ausgehende Lieferungen"
+ * defines a "ausgehende Lieferungen" object (entry in the table)
  */
 export interface PeriodicElement {
   Datum: string;
