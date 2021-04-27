@@ -29,6 +29,11 @@ main {
     margin-left: 0.5em;
 }
 
+.active-link {
+    background-color: green;
+    color: white;
+}
+
 div.content{
     width: 100%;
     height: 100vh;

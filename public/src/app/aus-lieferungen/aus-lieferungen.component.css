@@ -40,17 +40,20 @@ design of the buttons on the right
 design of the buttons that let the user toggle between "ausgehende Lieferungen" and "eingehende Lieferungen"
  */
 .toggleButton {
-    margin-right: 1em;
     width: 15em;
     height: 2em;
     font-family: Calibri;
     font-size: 16px;
-    color: white; /* white wenn im Fenster aktiv */
-    background-color: green; /* green wenn im Fenster aktiv */
 }
 
 .toggleButton:active {
     background-color: orange;
+    color: white;
+}
+
+.active-link {
+    background-color: orange;
+    color: white;
 }
 
 .table-filter {
