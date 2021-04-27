@@ -17,7 +17,9 @@ table {
     width: 7em;
 }
 
-
+/*
+design of the buttons on the right
+ */
 .Button {
     margin: auto;
     margin-top: 1em;
@@ -30,6 +32,13 @@ table {
     display: block;
 }
 
+.Button:active {
+    background-color: orange;
+}
+
+/*
+design of the buttons that let the user toggle between "ausgehende Lieferungen" and "eingehende Lieferungen"
+ */
 .toggleButton {
     margin-right: 1em;
     width: 15em;
@@ -38,6 +47,10 @@ table {
     font-size: 16px;
     color: white; /* white wenn im Fenster aktiv */
     background-color: green; /* green wenn im Fenster aktiv */
+}
+
+.toggleButton:active {
+    background-color: orange;
 }
 
 .table-filter {

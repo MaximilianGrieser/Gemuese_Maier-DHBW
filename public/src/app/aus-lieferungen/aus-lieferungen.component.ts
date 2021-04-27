@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 
-
+/**
+ * defines the columns of the table "ausgehende Lieferungen"
+ */
 export interface PeriodicElement {
   Datum: string;
   Kunde: string;
@@ -11,6 +13,9 @@ export interface PeriodicElement {
   Lieferschein: string;
 }
 
+/**
+ * example entry/entries that will be shown in the table "ausgehende Lieferungen"
+ */
 const ELEMENT_DATA: PeriodicElement[] = [
   {Datum: '21.03.2021', Kunde: 'Salvators Shop', Produkt: 'Erdnuesse', Menge: 4, Preis: 5, Lieferschein: '21-03-21'}
 ];

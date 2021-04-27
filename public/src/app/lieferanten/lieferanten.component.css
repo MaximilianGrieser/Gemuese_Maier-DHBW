@@ -30,6 +30,10 @@ table {
     display: block;
 }
 
+.Button:active {
+    background-color: orange;
+}
+
 .table-filter {
     font-size: 14px;
     width: 100%;

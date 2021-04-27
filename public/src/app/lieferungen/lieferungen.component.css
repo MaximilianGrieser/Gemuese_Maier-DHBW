@@ -30,6 +30,10 @@ table {
     display: block;
 }
 
+.Button:active {
+    background-color: orange;
+}
+
 .toggleButton {
     margin-right: 1em;
     width: 15em;
@@ -38,6 +42,10 @@ table {
     font-size: 16px;
     color: white; /* white wenn im Fenster aktiv */
     background-color: green; /* green wenn im Fenster aktiv */
+}
+
+.toggleButton:active {
+    background-color: orange;
 }
 
 .table-filter {

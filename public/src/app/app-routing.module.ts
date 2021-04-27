@@ -13,7 +13,9 @@ import { ProduzentenComponent } from './produzenten/produzenten.component';
 import { InformationenComponent } from './informationen/informationen.component';
 import { ErrorComponent } from './error/error.component';
 
-
+/**
+ * defines the URL path of every component
+ */
 const routes: Routes = [
   { path: '', redirectTo: '/bestand', pathMatch: 'full' },
   { path: 'ausLieferungen', component: AusLieferungenComponent },
@@ -27,7 +29,6 @@ const routes: Routes = [
   { path: 'informationen', component: InformationenComponent },
   { path: '**', component: ErrorComponent }
 ];
-
 
 @NgModule({
   declarations: [],
