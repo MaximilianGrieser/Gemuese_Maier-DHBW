@@ -1,16 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 
-export interface PeriodicElement {
+export interface Produzent {
   Name: string;
   ProduzentenNr: number;
   Anschrift: string;
   Ansprechpartner: string;
 }
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {Name: 'MysticFalls Gruenderfarm', ProduzentenNr: 1864, Anschrift: 'Wickery Bridge 2, Mystic Falls', Ansprechpartner: 'Carol Lockwood'}
-];
 
 @Component({
   selector: 'app-produzenten',
@@ -18,14 +14,18 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./produzenten.component.css']
 })
 export class ProduzentenComponent implements OnInit {
+  ELEMENT_DATA: Produzent[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+    this.ELEMENT_DATA = JSON.parse(localStorage.getItem("ProduzentData"));
+    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    console.log(this.ELEMENT_DATA)
   }
 
   displayedColumns: string[] = ['Name', 'Produzenten-Nr.', 'Anschrift', 'Ansprechpartner'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

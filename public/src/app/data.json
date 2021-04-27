@@ -1,0 +1,47 @@
+[
+    {
+        "Produkte": [{
+                "Bezeichnung": "Gurke",
+                "Herkunft": "Deutschland",
+                "Kategorie": "Gemuese",
+                "Verkaufspreis": 5,
+                "Lieferant": "Thomas Müller",
+                "Produzent": "Theos Erdhof",
+                "Anzahl": 2
+            },
+            {
+                "Bezeichnung": "Banane",
+                "Herkunft": "Deutschland",
+                "Kategorie": "Obst",
+                "Verkaufspreis": 5,
+                "Lieferant": "Ali Baba",
+                "Produzent": "Muhamad Ali",
+                "Anzahl": 2
+            }],
+        "Lieferanten":[{
+                "Name": "Siren Express",
+                "LieferantenNr": 1789,
+                "Anschrift": "Unter den Linden 4, Berlin",
+                "Ansprechpartner": "Sibil Siren"
+            },
+            {
+                "Name": "Ali",
+                "LieferantenNr": 1789,
+                "Anschrift": "Unter den Linden 4, Berlin",
+                "Ansprechpartner": "Sibil Siren"
+            }],
+        "Produzenten":[{
+                "Name": "MysticFalls Gruenderfarm",
+                "ProduzentenNr": 1864,
+                "Anschrift": "Wickery Bridge 2, Mystic Falls",
+                "Ansprechpartner": "Carol Lockwood"
+            },
+            {
+                "Name": "Ulf",
+                "ProduzentenNr": 1864,
+                "Anschrift": "Wickery Bridge 2, Mystic Falls",
+                "Ansprechpartner": "Carol Lockwood"
+            }
+        ]
+    }
+]
