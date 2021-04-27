@@ -32,6 +32,7 @@ export class ProdukteComponent implements OnInit {
   iProduzent: string;
   iAnzahl: number;
   edit_index: number;
+
   selected: Produkt;
 
   ELEMENT_DATA: Produkt[] = [];
@@ -60,7 +61,6 @@ export class ProdukteComponent implements OnInit {
 
   changeBezeichnung(event: Event) {
     this.iBezeichnung = (event.target as HTMLInputElement).value;
-    console.log(this.iBezeichnung)
   }
   changeHerkunft(event: Event) {
     this.iHerkunft = (event.target as HTMLInputElement).value;
