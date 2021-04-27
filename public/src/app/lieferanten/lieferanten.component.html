@@ -1,9 +1,11 @@
 <div class="body">
+    <!-- filter of the table, lets the user search for a table entry -->
     <mat-form-field class="table-filter">
         <mat-label>Filter</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
     </mat-form-field>
 
+    <!-- input form of the table for adding and modifying entries -->
     <div class="table-input-group">
         <mat-form-field class="table-input">
             <mat-label>Name</mat-label>
@@ -28,6 +30,7 @@
         </mat-form-field>
     </div>
 
+    <!-- table with content -->
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
         <ng-container matColumnDef="Name">
@@ -59,6 +62,7 @@
         </tr>
     </table>
 
+    <!-- buttons to manipulate entries in the table -->
     <div class="buttons">
         <button mat-raised-button class="Button">
             Lieferant Hinzufügen

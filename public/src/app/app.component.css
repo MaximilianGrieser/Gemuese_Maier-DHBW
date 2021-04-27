@@ -29,6 +29,17 @@ main {
     margin-left: 0.5em;
 }
 
+.active-link {
+    background-color: green;
+    color: white;
+}
+
+mat-icon {
+    vertical-align: top;
+    color: white;
+    font-size: 3em;
+}
+
 div.content{
     width: 100%;
     height: 100vh;

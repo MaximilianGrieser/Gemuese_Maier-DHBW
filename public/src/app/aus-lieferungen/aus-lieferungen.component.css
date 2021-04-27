@@ -1,5 +1,5 @@
 div.body{
-    padding: 2em ;
+    padding: 2em;
 }
 
 table {
@@ -17,7 +17,9 @@ table {
     width: 7em;
 }
 
-
+/*
+design of the buttons on the right
+ */
 .Button {
     margin: auto;
     margin-top: 1em;
@@ -29,15 +31,29 @@ table {
     background-color: green; /* green wenn im Fenster aktiv */
     display: block;
 }
+/*
+design of the currently active button (when it is clicked on)
+ */
+.Button:active {
+    background-color: orange;
+}
 
+/*
+design of the buttons that let the user toggle between views
+ */
 .toggleButton {
-    margin-right: 1em;
     width: 15em;
     height: 2em;
     font-family: Calibri;
     font-size: 16px;
-    color: white; /* white wenn im Fenster aktiv */
-    background-color: green; /* green wenn im Fenster aktiv */
+}
+
+/*
+design of the currently active view
+ */
+.active-view {
+    background-color: orange;
+    color: white;
 }
 
 .table-filter {

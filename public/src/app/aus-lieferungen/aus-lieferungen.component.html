@@ -1,18 +1,21 @@
 <div class="body">
+    <!-- Buttons to toggle between "ausgehende Lieferungen" and "eingehende Lieferungen" -->
     <div class="toggleView">
         <button mat-raised-button [routerLink]="['/lieferungen']" class="toggleButton">
-            eingehende Lieferungen
+            Eingehende Lieferungen
         </button>
-        <button mat-raised-button [routerLink]="['/ausLieferungen']" class="toggleButton">
-            ausgehende Lieferungen
+        <button mat-raised-button [routerLink]="['/ausLieferungen']" routerLinkActive="active-view" class="toggleButton">
+            Ausgehende Lieferungen
         </button>
     </div>
 
+    <!-- filter of the table, lets the user search for a table entry -->
     <mat-form-field class="table-filter">
         <mat-label>Filter</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
     </mat-form-field>
 
+    <!-- input form of the table for adding and modifying entries -->
     <div class="table-input-group">
         <mat-form-field class="table-input">
             <mat-label>Datum</mat-label>
@@ -47,6 +50,7 @@
         </mat-form-field>
     </div>
 
+    <!-- table with content -->
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
         <ng-container matColumnDef="Datum">
@@ -88,6 +92,7 @@
         </tr>
     </table>
 
+    <!-- buttons to manipulate entries in the table and create a "Lieferschein" -->
     <div class="buttons">
         <button mat-raised-button class="Button">
             Lieferung Hinzufügen

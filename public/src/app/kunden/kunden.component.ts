@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 
+/**
+ * defines the columns of the table "Kunden"
+ */
 export interface PeriodicElement {
   Name: string;
   KundenNr: number;
@@ -8,6 +11,9 @@ export interface PeriodicElement {
   Ansprechpartner: string;
 }
 
+/**
+ * example entry/entries that will be shown in the table "Kunden"
+ */
 const ELEMENT_DATA: PeriodicElement[] = [
   {Name: 'Saltzmann Markt', KundenNr: 1864, Anschrift: 'Nackarstrasse 134, Stuttgart', Ansprechpartner: 'Alaric Saltzmann'}
 ];
