@@ -17,6 +17,12 @@ table {
     width: 7em;
 }
 
+.buttons {
+    width: 20%;
+    float: left;
+    margin-left: 2em;
+  } 
+
 /*
 design of the buttons on the right
  */

@@ -16,8 +16,13 @@ div.body{
   .table-input{
     width: 7em;
   }
-  
-  
+    
+  .buttons {
+    width: 20%;
+    float: left;
+    margin-left: 2em;
+  } 
+
   .Button {
     margin: auto;
     margin-top: 1em;
