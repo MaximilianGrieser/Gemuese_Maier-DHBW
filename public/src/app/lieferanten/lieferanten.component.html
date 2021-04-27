@@ -2,31 +2,31 @@
     <!-- filter of the table, lets the user search for a table entry -->
     <mat-form-field class="table-filter">
         <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
     </mat-form-field>
 
     <!-- input form of the table for adding and modifying entries -->
     <div class="table-input-group">
         <mat-form-field class="table-input">
             <mat-label>Name</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+            <input matInput id="i-Name" (keyup)="changeName($event)" placeholder="Name" #input>
         </mat-form-field>
 
         <mat-form-field class="table-input">
             <mat-label>Lieferanten-Nr.</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+            <input matInput id="i-Lief" (keyup)="changeLieferantenNr($event)" placeholder="Lieferanten-Nr" #input>
         </mat-form-field>
 
 
         <mat-form-field class="table-input">
             <mat-label>Anschrift</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+            <input matInput id="i-ans" (keyup)="changeAnschrift($event)" placeholder="Anschrift" #input>
         </mat-form-field>
 
 
         <mat-form-field class="table-input">
             <mat-label>Ansprechpartner</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+            <input matInput id="i-anp" (keyup)="changeAnsprechpartner($event)" placeholder="Ansprechpartner" #input>
         </mat-form-field>
     </div>
 
@@ -54,7 +54,7 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row)"></tr>
 
         <!-- Row shown when there is no matching data. -->
         <tr class="mat-row" *matNoDataRow>
@@ -64,13 +64,13 @@
 
     <!-- buttons to manipulate entries in the table -->
     <div class="buttons">
-        <button mat-raised-button class="Button">
+        <button mat-raised-button class="Button" (click)="add()">
             Lieferant Hinzufügen
         </button>
-        <button mat-raised-button class="Button">
+        <button mat-raised-button class="Button" (click)="edit()">
             Lieferant Bearbeiten
         </button>
-        <button mat-raised-button class="Button">
+        <button mat-raised-button class="Button" (click)="delete()">
             Lieferant Löschen
         </button>
     </div>

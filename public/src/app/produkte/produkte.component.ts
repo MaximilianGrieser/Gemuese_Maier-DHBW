@@ -30,8 +30,6 @@ interface DropDown {
 })
 
 export class ProdukteComponent implements OnInit {
-
-  constructor() { }
   iBezeichnung: string;
   iHerkunft: string;
   iKategorie: string;
@@ -51,8 +49,7 @@ export class ProdukteComponent implements OnInit {
   ddProd: string;
   ddLief: string;
 
-  displayedColumns: string[] = ['Bezeichnung', 'Herkunft', 'Kategorie', 'Verkaufspreis', 'Lieferant', 'Produzent', 'Anzahl'];
-  dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+  constructor() { }
 
   /**
    * loads data from local storage and stores it in an array when component is loaded
@@ -108,9 +105,6 @@ export class ProdukteComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
   }
 
-  /**
-   * function to modify an entry of the table
-   */
   edit() {
     this.editIndex = this.ELEMENT_DATA.findIndex(x => (
       x.Bezeichnung == this.selected.Bezeichnung &&
@@ -166,7 +160,7 @@ export class ProdukteComponent implements OnInit {
    * loads data from array in local storage (saves changes in the data)
    */
   ngOnDestroy(){
-    localStorage.setItem('ProduktData', JSON.stringify(this.ELEMENT_DATA));
+    localStorage.setItem("ProduktData", JSON.stringify(this.ELEMENT_DATA))
   }
 
   /**
