@@ -17,7 +17,9 @@ table {
     width: 7em;
 }
 
-
+/*
+design of the buttons on the right
+ */
 .Button {
     margin: auto;
     margin-top: 1em;
@@ -30,10 +32,16 @@ table {
     display: block;
 }
 
+/*
+design of the currently active button (when it is clicked on)
+ */
 .Button:active {
     background-color: orange;
 }
 
+/*
+design of the buttons that let the user toggle between views
+ */
 .toggleButton {
     width: 15em;
     height: 2em;
@@ -41,11 +49,9 @@ table {
     font-size: 16px;
 }
 
-.toggleButton:active {
-    background-color: orange;
-    color: white;
-}
-
+/*
+design of the currently active view
+ */
 .active-link {
     background-color: orange;
     color: white;
