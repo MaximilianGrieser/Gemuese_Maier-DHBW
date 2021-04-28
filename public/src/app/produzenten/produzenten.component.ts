@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 
 /**
@@ -18,7 +18,9 @@ export interface Produzent {
 })
 export class ProduzentenComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
+
   iName: string;
   iProduzentenNr: number;
   iAnschrift: string;
@@ -43,17 +45,20 @@ export class ProduzentenComponent implements OnInit {
   /**
    * functions to get data from the table input fields (text and drop-down)
    * function names indicate which field is read
-   * @param ebent is a key event
+   * @param event is a key event
    */
   changeName(event: Event): void {
     this.iName = (event.target as HTMLInputElement).value;
   }
+
   changeProduzent(event: Event): void {
     this.iProduzentenNr = parseInt((event.target as HTMLInputElement).value, 10);
   }
+
   changeAnschrift(event: Event): void {
     this.iAnschrift = (event.target as HTMLInputElement).value;
   }
+
   changeAnsprechpartner(event: Event): void {
     this.iAnsprechpartner = (event.target as HTMLInputElement).value;
   }
@@ -62,11 +67,14 @@ export class ProduzentenComponent implements OnInit {
    * function to add the data entered by the user in the table form to the table
    */
   addTableEntry(): void {
-    if(this.iName == null || this.iProduzentenNr == null ||  this.iAnschrift == null || this.iAnsprechpartner == null) {
-      alert("Bitte Trage etwas in die Felder ein!");
-    }else {
+    if (this.iName == null || this.iProduzentenNr == null || this.iAnschrift == null || this.iAnsprechpartner == null) {
+      alert('Bitte Trage etwas in die Felder ein!');
+    } else {
       this.ELEMENT_DATA.push({
-        Name: this.iName, ProduzentenNr: this.iProduzentenNr, Anschrift: this.iAnschrift, Ansprechpartner: this.iAnsprechpartner
+        Name: this.iName,
+        ProduzentenNr: this.iProduzentenNr,
+        Anschrift: this.iAnschrift,
+        Ansprechpartner: this.iAnsprechpartner
       });
       console.log(this.ELEMENT_DATA);
       this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
@@ -121,7 +129,7 @@ export class ProduzentenComponent implements OnInit {
    * function that loads data from array in local storage (saves changes in the data)
    */
   // tslint:disable-next-line:use-lifecycle-interface
-  ngOnDestroy(): void{
+  ngOnDestroy(): void {
     localStorage.setItem('ProduzentData', JSON.stringify(this.ELEMENT_DATA));
   }
 
