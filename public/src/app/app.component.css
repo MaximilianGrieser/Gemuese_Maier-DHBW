@@ -14,11 +14,11 @@ main {
 
 .header-lower {
     width: 100%;
-    background-color: lightgreen;
+    background-color: rgb(181, 231, 181);
     overflow-wrap: break-word;
 }
 
-.navButton {
+.nav-button {
     font-family:Calibri;
     font-size: 16px;
     color: green; /* white wenn im Fenster aktiv */

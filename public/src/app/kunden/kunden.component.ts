@@ -4,7 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 /**
  * defines the columns of the table 'Kunden'
  */
-export interface PeriodicElement {
+export interface periodicElement {
   Name: string;
   KundenNr: number;
   Anschrift: string;
@@ -14,18 +14,24 @@ export interface PeriodicElement {
 /**
  * example entry/entries that will be shown in the table 'Kunden'
  */
-const elementData: PeriodicElement[] = [
-  {Name: 'Saltzmann Markt', KundenNr: 1864, Anschrift: 'Nackarstrasse 134, Stuttgart', Ansprechpartner: 'Alaric Saltzmann'}
+const elementData: periodicElement[] = [
+  {Name: 'Saltzmann Markt', 
+    KundenNr: 1864, 
+    Anschrift: 'Nackarstrasse 134, Stuttgart', 
+    Ansprechpartner: 'Alaric Saltzmann'}
 ];
+
 
 @Component({
   selector: 'app-kunden',
   templateUrl: './kunden.component.html',
   styleUrls: ['./kunden.component.css']
 })
+/**
+ * component for the "Kunden" page. Stores all information about customers. 
+ */
 export class KundenComponent implements OnInit {
 
-  constructor() { }
 
   ngOnInit(): void {
   }

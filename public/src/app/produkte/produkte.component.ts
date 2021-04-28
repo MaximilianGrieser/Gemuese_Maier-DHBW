@@ -19,7 +19,7 @@ export interface Produkt {
 /**
  * defines a drop-down object in the table
  */
-interface DropDown {
+interface dropDown {
   value: string;
 }
 
@@ -29,26 +29,29 @@ interface DropDown {
   styleUrls: ['./produkte.component.css']
 })
 
+/**
+ * component for the "Produkte" page. Stores all information about available products. 
+ */
 export class ProdukteComponent implements OnInit {
-  iBezeichnung: string;
-  iHerkunft: string;
-  iKategorie: string;
-  iVerkaufspreis: number;
-  iLieferant: string;
-  iProduzent: string;
-  iAnzahl: number;
+  BezeichnungIndex: string;
+  HerkunftIndex: string;
+  KategorieIndex: string;
+  VerkaufspreisIndex: number;
+  LieferantIndex: string;
+  ProduzentIndex: string;
+  AnzahlIndex: number;
   editIndex: number;
   selected: Produkt;
   dataSource = new MatTableDataSource();
 
   elementData: Produkt[] = [];
   Lieferanten: Lieferant[] = [];
-  DDLief: DropDown[] = [];
+  LieferantenDropDown: dropDown[] = [];
   Produzenten: Produzent[] = [];
-  DDProd: DropDown[] = [];
+  ProduzentenDropDown: dropDown[] = [];
 
-  ddProd: string;
-  ddLief: string;
+  ProduzentenDropDownContent: string;
+  LieferantenDropDownContent: string;
 
   displayedColumns: string[] = ['Bezeichnung', 'Herkunft', 'Kategorie', 'Verkaufspreis', 'Lieferant',
     'Produzent', 'Anzahl'];
@@ -63,11 +66,11 @@ export class ProdukteComponent implements OnInit {
     this.elementData = JSON.parse(localStorage.getItem('ProduktData'));
     this.Lieferanten = JSON.parse(localStorage.getItem('LieferantData'));
     this.Lieferanten.forEach(lief => {
-      this.DDLief.push({value: lief.Name});
+      this.LieferantenDropDown.push({value: lief.Name});
     });
     this.Produzenten = JSON.parse(localStorage.getItem('ProduzentData'));
     this.Produzenten.forEach(prod => {
-      this.DDProd.push({value: prod.Name});
+      this.ProduzentenDropDown.push({value: prod.Name});
     });
     this.dataSource = new MatTableDataSource(this.elementData);
   }
@@ -79,45 +82,55 @@ export class ProdukteComponent implements OnInit {
    * @param string is a string of a drop-down option
    */
   changeBezeichnung(event: Event): void {
-    this.iBezeichnung = (event.target as HTMLInputElement).value;
-    console.log(this.iBezeichnung);
+    this.BezeichnungIndex = (event.target as HTMLInputElement).value;
+    console.log(this.BezeichnungIndex);
   }
 
   changeHerkunft(event: Event): void {
-    this.iHerkunft = (event.target as HTMLInputElement).value;
+    this.HerkunftIndex = (event.target as HTMLInputElement).value;
   }
 
   changeKategorie(event: Event): void {
-    this.iKategorie = (event.target as HTMLInputElement).value;
+    this.KategorieIndex = (event.target as HTMLInputElement).value;
   }
 
   changeVerkaufspreis(event: Event): void {
-    this.iVerkaufspreis = parseInt((event.target as HTMLInputElement).value, 10);
+    this.VerkaufspreisIndex = parseInt((event.target as HTMLInputElement).value, 10);
   }
 
   changeLieferant(Lief: string): void {
-    this.iLieferant = Lief;
+    this.LieferantIndex = Lief;
   }
 
   changeProduzent(Prod: string): void {
-    this.iProduzent = Prod;
+    this.ProduzentIndex = Prod;
   }
 
   changeAnzahl(event: Event): void {
-    this.iAnzahl = parseInt((event.target as HTMLInputElement).value, 10);
+    this.AnzahlIndex = parseInt((event.target as HTMLInputElement).value, 10);
   }
 
   /**
    * function to add the data entered by the user in the table form to the table
    */
   addTableEntry(): void {
-    if (this.iBezeichnung == null || this.iHerkunft == null || this.iKategorie == null || this.iVerkaufspreis == null
-      || this.iLieferant == null || this.iProduzent == null || this.iAnzahl == null) {
+    if (this.BezeichnungIndex == null 
+        || this.HerkunftIndex == null 
+        || this.KategorieIndex == null 
+        || this.VerkaufspreisIndex == null
+        || this.LieferantIndex == null 
+        || this.ProduzentIndex == null 
+        || this.AnzahlIndex == null) {
       alert('Bitte Tragen Sie etwas in die Felder ein!');
     } else {
       this.elementData.push({
-        Bezeichnung: this.iBezeichnung, Herkunft: this.iHerkunft, Kategorie: this.iKategorie,
-        Verkaufspreis: this.iVerkaufspreis, Lieferant: this.iLieferant, Produzent: this.iProduzent, Anzahl: this.iAnzahl
+        Bezeichnung: this.BezeichnungIndex, 
+        Herkunft: this.HerkunftIndex, 
+        Kategorie: this.KategorieIndex,
+        Verkaufspreis: this.VerkaufspreisIndex, 
+        Lieferant: this.LieferantIndex, 
+        Produzent: this.ProduzentIndex, 
+        Anzahl: this.AnzahlIndex
       });
       console.log(this.elementData);
       this.dataSource = new MatTableDataSource(this.elementData);
@@ -140,13 +153,13 @@ export class ProdukteComponent implements OnInit {
       x.Anzahl === this.selected.Anzahl)
     );
 
-    this.elementData[this.editIndex].Bezeichnung = this.iBezeichnung;
-    this.elementData[this.editIndex].Herkunft = this.iHerkunft;
-    this.elementData[this.editIndex].Kategorie = this.iKategorie;
-    this.elementData[this.editIndex].Verkaufspreis = this.iVerkaufspreis;
-    this.elementData[this.editIndex].Lieferant = this.iLieferant;
-    this.elementData[this.editIndex].Produzent = this.iProduzent;
-    this.elementData[this.editIndex].Anzahl = this.iAnzahl;
+    this.elementData[this.editIndex].Bezeichnung = this.BezeichnungIndex;
+    this.elementData[this.editIndex].Herkunft = this.HerkunftIndex;
+    this.elementData[this.editIndex].Kategorie = this.KategorieIndex;
+    this.elementData[this.editIndex].Verkaufspreis = this.VerkaufspreisIndex;
+    this.elementData[this.editIndex].Lieferant = this.LieferantIndex;
+    this.elementData[this.editIndex].Produzent = this.ProduzentIndex;
+    this.elementData[this.editIndex].Anzahl = this.AnzahlIndex;
   }
 
   /**
@@ -165,19 +178,19 @@ export class ProdukteComponent implements OnInit {
   getRecord(row: Produkt): void {
     this.selected = row;
     (document.getElementById('i-bez') as HTMLInputElement).value = row.Bezeichnung;
-    this.iBezeichnung = row.Bezeichnung;
+    this.BezeichnungIndex = row.Bezeichnung;
     (document.getElementById('i-her') as HTMLInputElement).value = row.Herkunft;
-    this.iHerkunft = row.Herkunft;
+    this.HerkunftIndex = row.Herkunft;
     (document.getElementById('i-kat') as HTMLInputElement).value = row.Kategorie;
-    this.iKategorie = row.Kategorie;
+    this.KategorieIndex = row.Kategorie;
     (document.getElementById('i-vp') as HTMLInputElement).value = row.Verkaufspreis.toString();
-    this.iVerkaufspreis = row.Verkaufspreis;
-    this.ddLief = row.Lieferant;
-    this.iLieferant = row.Lieferant;
-    this.ddProd = row.Produzent;
-    this.iProduzent = row.Produzent;
+    this.VerkaufspreisIndex = row.Verkaufspreis;
+    this.LieferantenDropDownContent = row.Lieferant;
+    this.LieferantIndex = row.Lieferant;
+    this.ProduzentenDropDownContent = row.Produzent;
+    this.ProduzentIndex = row.Produzent;
     (document.getElementById('i-anz') as HTMLInputElement).value = row.Anzahl.toString();
-    this.iAnzahl = row.Anzahl;
+    this.AnzahlIndex = row.Anzahl;
   }
 
   /**

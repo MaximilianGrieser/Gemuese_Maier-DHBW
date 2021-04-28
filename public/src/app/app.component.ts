@@ -16,6 +16,8 @@ export interface Data {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent {
   title = 'businesssite';
   currentRoute: string;
@@ -23,26 +25,23 @@ export class AppComponent {
   ELEMENT_DATA: Data = (datafile as any).default;
 
   constructor(private router: Router) {
-    this.initStorrage();
+    this.initStorage();
   }
 
   /**
    * function to load data from data.json file into local storage
    * function is called on page loading
    */
-  initStorrage(): void {
+  initStorage(): void {
     console.log(this.ELEMENT_DATA[0]);
 
     if (!(localStorage.getItem('ProduktData'))) {
-      console.log(this.ELEMENT_DATA[0].Produkte);
       localStorage.setItem('ProduktData', JSON.stringify(this.ELEMENT_DATA[0].Produkte));
     }
     if (!(localStorage.getItem('LieferantData'))) {
-      console.log(this.ELEMENT_DATA[0].Lieferanten);
       localStorage.setItem('LieferantData', JSON.stringify(this.ELEMENT_DATA[0].Lieferanten));
     }
     if (!(localStorage.getItem('ProduzentData'))) {
-      console.log(this.ELEMENT_DATA[0].Produzent);
       localStorage.setItem('ProduzentData', JSON.stringify(this.ELEMENT_DATA[0].Produzenten));
     } else {
       console.log('Produzent: ' + localStorage.getItem('ProduzentData'));

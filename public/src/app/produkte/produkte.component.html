@@ -1,9 +1,10 @@
 <div class="body">
+    <!-- filter of the table, lets the user search for a table entry -->
     <mat-form-field class="table-filter">
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
     </mat-form-field>
-  
+    <!-- input form of the table for adding and modifying entries -->
     <div class="table-input-group">
       <mat-form-field class="table-input">
         <mat-label>Bezeichnung</mat-label>
@@ -27,8 +28,8 @@
 
       <mat-form-field class="table-input">
         <mat-label>Lieferant</mat-label>
-        <mat-select id="i-lief" (selectionChange)="changeLieferant($event.value)" [(value)]="ddLief">
-          <mat-option *ngFor="let element of DDLief" [value]="element.value">
+        <mat-select id="i-lief" (selectionChange)="changeLieferant($event.value)" [(value)]="LieferantenDropDownContent">
+          <mat-option *ngFor="let element of LieferantenDropDown" [value]="element.value">
             {{element.value}}
           </mat-option>
         </mat-select>
@@ -36,8 +37,8 @@
 
       <mat-form-field class="table-input">
         <mat-label>Produzent</mat-label>
-        <mat-select id="i-prod" (selectionChange)="changeProduzent($event.value)" [(value)]="ddProd">
-          <mat-option *ngFor="let element of DDProd" [value]="element.value">
+        <mat-select id="i-prod" (selectionChange)="changeProduzent($event.value)" [(value)]="ProduzentenDropDownContent">
+          <mat-option *ngFor="let element of ProduzentenDropDown" [value]="element.value">
             {{element.value}}
           </mat-option>
         </mat-select>
@@ -48,7 +49,8 @@
         <input matInput id="i-anz" (keyup)="changeAnzahl($event)" placeholder="Anzahl" #input>
       </mat-form-field>
     </div>
-    
+
+    <!-- table with content -->    
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     
       <ng-container matColumnDef="Bezeichnung">
@@ -94,7 +96,7 @@
         <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
       </tr>
     </table>
-  
+    <!-- buttons to manipulate entries in the table and see the "Preisliste" -->
     <div class="buttons">
       <button mat-raised-button class="Button" (click)="addTableEntry()">
         Produkt Hinzufügen

@@ -27,7 +27,6 @@ const elementData: PeriodicElement[] = [
 })
 export class AusLieferungenComponent implements OnInit {
 
-  constructor() { }
 
   ngOnInit(): void {
   }

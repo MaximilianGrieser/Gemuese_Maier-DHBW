@@ -3,7 +3,8 @@
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
     </mat-form-field>
-  
+    <!-- input form of the table for adding and modifying entries -->
+
     <div class="table-input-group">
       <mat-form-field class="table-input">
         <mat-label>Regal</mat-label>
@@ -20,7 +21,7 @@
         <input matInput placeholder="Kapazitaet" #input>
       </mat-form-field>
     </div>
-    
+    <!-- table with content -->
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     
       <ng-container matColumnDef="Regal">
@@ -46,7 +47,7 @@
         <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
       </tr>
     </table>
-  
+    <!-- buttons to manipulate entries in the table -->
     <div class="buttons">
       <button mat-raised-button class="Button">
         Lagerplatz Hinzufügen

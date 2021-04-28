@@ -4,7 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 /**
  * defines the columns of the table 'eingehende Lieferungen'
  */
-export interface PeriodicElement {
+export interface periodicElement {
   Datum: string;
   Produzent: string;
   Produkt: string;
@@ -16,7 +16,7 @@ export interface PeriodicElement {
 /**
  * example entry/entries that will be shown in the table 'eingehende Lieferungen'
  */
-const elementData: PeriodicElement[] = [
+const elementData: periodicElement[] = [
   {
     Datum: '29.03.2021',
     Produzent: 'MysticFalls Gruenderfarm',
@@ -32,10 +32,12 @@ const elementData: PeriodicElement[] = [
   templateUrl: './lieferungen.component.html',
   styleUrls: ['./lieferungen.component.css']
 })
+
+/**
+ * component for the page "Lieferungen", stores informatoion about deliveries
+ */
 export class LieferungenComponent implements OnInit {
 
-  constructor() {
-  }
 
   ngOnInit(): void {
   }

@@ -16,15 +16,12 @@ export interface Lieferant {
   templateUrl: './lieferanten.component.html',
   styleUrls: ['./lieferanten.component.css']
 })
+
 export class LieferantenComponent implements OnInit {
-
-  constructor() {
-  }
-
-  iName: string;
-  iLieferantenNr: number;
-  iAnschrift: string;
-  iAnsprechpartner: string;
+  NameIndex: string;
+  LieferantenNrIndex: number;
+  AnschriftIndex: string;
+  AnsprechpartnerIndex: string;
   editIndex: number;
 
   selected: Lieferant;
@@ -48,33 +45,36 @@ export class LieferantenComponent implements OnInit {
    * @param event is a key event
    */
   changeName(event: Event): void {
-    this.iName = (event.target as HTMLInputElement).value;
+    this.NameIndex = (event.target as HTMLInputElement).value;
   }
 
   changeLieferantenNr(event: Event): void {
-    this.iLieferantenNr = parseInt((event.target as HTMLInputElement).value, 10);
+    this.LieferantenNrIndex = parseInt((event.target as HTMLInputElement).value, 10);
   }
 
   changeAnschrift(event: Event): void {
-    this.iAnschrift = (event.target as HTMLInputElement).value;
+    this.AnschriftIndex = (event.target as HTMLInputElement).value;
   }
 
   changeAnsprechpartner(event: Event): void {
-    this.iAnsprechpartner = (event.target as HTMLInputElement).value;
+    this.AnsprechpartnerIndex = (event.target as HTMLInputElement).value;
   }
 
   /**
    * function to add the data entered by the user in the table form to the table
    */
   addTableEntry(): void {
-    if (this.iName == null || this.iLieferantenNr == null || this.iAnschrift == null || this.iAnsprechpartner == null) {
+    if (this.NameIndex == null 
+        || this.LieferantenNrIndex == null 
+        || this.AnschriftIndex == null 
+        || this.AnsprechpartnerIndex == null) {
       alert('Bitte Tragen Sie etwas in die Felder ein!');
     } else {
       this.elementData.push({
-        Name: this.iName,
-        LieferantenNr: this.iLieferantenNr,
-        Anschrift: this.iAnschrift,
-        Ansprechpartner: this.iAnsprechpartner
+        Name: this.NameIndex,
+        LieferantenNr: this.LieferantenNrIndex,
+        Anschrift: this.AnschriftIndex,
+        Ansprechpartner: this.AnsprechpartnerIndex
       });
       console.log(this.elementData);
       this.dataSource = new MatTableDataSource(this.elementData);
@@ -94,10 +94,10 @@ export class LieferantenComponent implements OnInit {
       x.Ansprechpartner === this.selected.Ansprechpartner)
     );
 
-    this.elementData[this.editIndex].Name = this.iName;
-    this.elementData[this.editIndex].LieferantenNr = this.iLieferantenNr;
-    this.elementData[this.editIndex].Anschrift = this.iAnschrift;
-    this.elementData[this.editIndex].Ansprechpartner = this.iAnsprechpartner;
+    this.elementData[this.editIndex].Name = this.NameIndex;
+    this.elementData[this.editIndex].LieferantenNr = this.LieferantenNrIndex;
+    this.elementData[this.editIndex].Anschrift = this.AnschriftIndex;
+    this.elementData[this.editIndex].Ansprechpartner = this.AnsprechpartnerIndex;
   }
 
   /**
@@ -116,13 +116,13 @@ export class LieferantenComponent implements OnInit {
   getRecord(row: Lieferant): void {
     this.selected = row;
     (document.getElementById('i-Name') as HTMLInputElement).value = row.Name;
-    this.iName = row.Name;
+    this.NameIndex = row.Name;
     (document.getElementById('i-Lief') as HTMLInputElement).value = row.LieferantenNr.toString();
-    this.iLieferantenNr = row.LieferantenNr;
+    this.LieferantenNrIndex = row.LieferantenNr;
     (document.getElementById('i-ans') as HTMLInputElement).value = row.Anschrift;
-    this.iAnschrift = row.Anschrift;
+    this.AnschriftIndex = row.Anschrift;
     (document.getElementById('i-anp') as HTMLInputElement).value = row.Ansprechpartner;
-    this.iAnsprechpartner = row.Ansprechpartner;
+    this.AnsprechpartnerIndex = row.Ansprechpartner;
   }
 
   /**

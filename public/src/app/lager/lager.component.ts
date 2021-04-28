@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
-export interface PeriodicElement {
+/**
+ * defines the columns of the table 'Lager'
+ */
+export interface periodicElement {
   Regal: string;
   Standort: string;
   Kapazitaet: string;
@@ -13,14 +16,14 @@ export interface PeriodicElement {
   styleUrls: ['./lager.component.css']
 })
 
+/**
+ * component for the "Bestand" page. Stores all information about products in stock. 
+ */
 export class LagerComponent implements OnInit {
 
-  constructor() { }
-
-  elementData: PeriodicElement[] = [
+  elementData: periodicElement[] = [
     {Regal: 'Gurke', Standort: 'Deutschland', Kapazitaet: 'Gemuese'}
   ];
-
 
   displayedColumns: string[] = ['Regal', 'Standort', 'Kapazitaet'];
   dataSource = new MatTableDataSource(this.elementData);
