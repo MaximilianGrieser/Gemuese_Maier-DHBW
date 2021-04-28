@@ -122,6 +122,7 @@ export class LieferantenComponent implements OnInit {
 
   /**
    * function is called when user searches for an entry in the table
+   * @param event is a key event
    */
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
