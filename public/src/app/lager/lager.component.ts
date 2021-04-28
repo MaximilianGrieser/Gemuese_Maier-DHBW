@@ -17,13 +17,13 @@ export class LagerComponent implements OnInit {
 
   constructor() { }
 
-  ELEMENT_DATA: PeriodicElement[] = [
+  elementData: PeriodicElement[] = [
     {Regal: 'Gurke', Standort: 'Deutschland', Kapazitaet: 'Gemuese'}
   ];
 
 
   displayedColumns: string[] = ['Regal', 'Standort', 'Kapazitaet'];
-  dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+  dataSource = new MatTableDataSource(this.elementData);
 
   ngOnInit(): void {
   }

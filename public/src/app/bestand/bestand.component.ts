@@ -19,13 +19,13 @@ export class BestandComponent implements OnInit {
 
   constructor() { }
 
-  ELEMENT_DATA: PeriodicElement[] = [
+  elementData: PeriodicElement[] = [
     {Bezeichnung: 'Gurke', Kategorie: 'Gemuese', Regal: 1, Haltbar: 2, Anzahl: 2}
   ];
 
 
   displayedColumns: string[] = ['Bezeichnung', 'Kategorie', 'Regal', 'Haltbar', 'Anzahl'];
-  dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+  dataSource = new MatTableDataSource(this.elementData);
 
   ngOnInit(): void {
   }

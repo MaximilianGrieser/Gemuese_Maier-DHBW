@@ -16,7 +16,7 @@ export interface PeriodicElement {
 /**
  * example entry/entries that will be shown in the table "ausgehende Lieferungen"
  */
-const ELEMENT_DATA: PeriodicElement[] = [
+const elementData: PeriodicElement[] = [
   {Datum: '21.03.2021', Kunde: 'Salvators Shop', Produkt: 'Erdnuesse', Menge: 4, Preis: 5, Lieferschein: '21-03-21'}
 ];
 
@@ -33,7 +33,7 @@ export class AusLieferungenComponent implements OnInit {
   }
 
   displayedColumns: string[] = ['Datum', 'Kunde', 'Produkt', 'Menge', 'Preis', 'Lieferschein'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  dataSource = new MatTableDataSource(elementData);
 
   /**
    * function is called when user searches for an entry in the table

@@ -41,7 +41,7 @@ export class ProdukteComponent implements OnInit {
   selected: Produkt;
   dataSource = new MatTableDataSource();
 
-  ELEMENT_DATA: Produkt[] = [];
+  elementData: Produkt[] = [];
   Lieferanten: Lieferant[] = [];
   DDLief: DropDown[] = [];
   Produzenten: Produzent[] = [];
@@ -60,7 +60,7 @@ export class ProdukteComponent implements OnInit {
    * function to load data from local storage and stores it in an array when component is loaded
    */
   ngOnInit(): void {
-    this.ELEMENT_DATA = JSON.parse(localStorage.getItem('ProduktData'));
+    this.elementData = JSON.parse(localStorage.getItem('ProduktData'));
     this.Lieferanten = JSON.parse(localStorage.getItem('LieferantData'));
     this.Lieferanten.forEach(lief => {
       this.DDLief.push({value: lief.Name});
@@ -69,7 +69,7 @@ export class ProdukteComponent implements OnInit {
     this.Produzenten.forEach(prod => {
       this.DDProd.push({value: prod.Name});
     });
-    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    this.dataSource = new MatTableDataSource(this.elementData);
   }
 
   /**
@@ -115,12 +115,12 @@ export class ProdukteComponent implements OnInit {
       || this.iLieferant == null || this.iProduzent == null || this.iAnzahl == null) {
       alert('Bitte Tragen Sie etwas in die Felder ein!');
     } else {
-      this.ELEMENT_DATA.push({
+      this.elementData.push({
         Bezeichnung: this.iBezeichnung, Herkunft: this.iHerkunft, Kategorie: this.iKategorie,
         Verkaufspreis: this.iVerkaufspreis, Lieferant: this.iLieferant, Produzent: this.iProduzent, Anzahl: this.iAnzahl
       });
-      console.log(this.ELEMENT_DATA);
-      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+      console.log(this.elementData);
+      this.dataSource = new MatTableDataSource(this.elementData);
     }
   }
 
@@ -130,7 +130,7 @@ export class ProdukteComponent implements OnInit {
    * second, the data of the entry is overwritten with the data from the input field
    */
   editTableEntry(): void {
-    this.editIndex = this.ELEMENT_DATA.findIndex(x => (
+    this.editIndex = this.elementData.findIndex(x => (
       x.Bezeichnung === this.selected.Bezeichnung &&
       x.Herkunft === this.selected.Herkunft &&
       x.Kategorie === this.selected.Kategorie &&
@@ -140,21 +140,21 @@ export class ProdukteComponent implements OnInit {
       x.Anzahl === this.selected.Anzahl)
     );
 
-    this.ELEMENT_DATA[this.editIndex].Bezeichnung = this.iBezeichnung;
-    this.ELEMENT_DATA[this.editIndex].Herkunft = this.iHerkunft;
-    this.ELEMENT_DATA[this.editIndex].Kategorie = this.iKategorie;
-    this.ELEMENT_DATA[this.editIndex].Verkaufspreis = this.iVerkaufspreis;
-    this.ELEMENT_DATA[this.editIndex].Lieferant = this.iLieferant;
-    this.ELEMENT_DATA[this.editIndex].Produzent = this.iProduzent;
-    this.ELEMENT_DATA[this.editIndex].Anzahl = this.iAnzahl;
+    this.elementData[this.editIndex].Bezeichnung = this.iBezeichnung;
+    this.elementData[this.editIndex].Herkunft = this.iHerkunft;
+    this.elementData[this.editIndex].Kategorie = this.iKategorie;
+    this.elementData[this.editIndex].Verkaufspreis = this.iVerkaufspreis;
+    this.elementData[this.editIndex].Lieferant = this.iLieferant;
+    this.elementData[this.editIndex].Produzent = this.iProduzent;
+    this.elementData[this.editIndex].Anzahl = this.iAnzahl;
   }
 
   /**
    * function to delete an entry that is selected by the user
    */
   deleteTableEntry(): void {
-    this.ELEMENT_DATA = this.ELEMENT_DATA.filter(prod => prod !== this.selected);
-    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    this.elementData = this.elementData.filter(prod => prod !== this.selected);
+    this.dataSource = new MatTableDataSource(this.elementData);
     console.log('Deleted ' + this.selected);
   }
 
@@ -185,7 +185,7 @@ export class ProdukteComponent implements OnInit {
    */
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnDestroy(): void {
-    localStorage.setItem('ProduktData', JSON.stringify(this.ELEMENT_DATA));
+    localStorage.setItem('ProduktData', JSON.stringify(this.elementData));
   }
 
   /**

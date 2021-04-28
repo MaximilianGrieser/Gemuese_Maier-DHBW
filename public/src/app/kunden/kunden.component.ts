@@ -14,7 +14,7 @@ export interface PeriodicElement {
 /**
  * example entry/entries that will be shown in the table 'Kunden'
  */
-const ELEMENT_DATA: PeriodicElement[] = [
+const elementData: PeriodicElement[] = [
   {Name: 'Saltzmann Markt', KundenNr: 1864, Anschrift: 'Nackarstrasse 134, Stuttgart', Ansprechpartner: 'Alaric Saltzmann'}
 ];
 
@@ -31,7 +31,7 @@ export class KundenComponent implements OnInit {
   }
 
   displayedColumns: string[] = ['Name', 'Kunden-Nr.', 'Anschrift', 'Ansprechpartner'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  dataSource = new MatTableDataSource(elementData);
 
   /**
    * function is called when user searches for an entry in the table

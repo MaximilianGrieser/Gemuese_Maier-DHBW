@@ -29,17 +29,17 @@ export class LieferantenComponent implements OnInit {
 
   selected: Lieferant;
 
-  ELEMENT_DATA: Lieferant[] = [];
+  elementData: Lieferant[] = [];
 
   displayedColumns: string[] = ['Name', 'Lieferanten-Nr.', 'Anschrift', 'Ansprechpartner'];
-  dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+  dataSource = new MatTableDataSource(this.elementData);
 
   /**
    * loads data from local storage and stores it in an array when component is loaded
    */
   ngOnInit(): void {
-    this.ELEMENT_DATA = JSON.parse(localStorage.getItem('LieferantData'));
-    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    this.elementData = JSON.parse(localStorage.getItem('LieferantData'));
+    this.dataSource = new MatTableDataSource(this.elementData);
   }
 
   /**
@@ -70,14 +70,14 @@ export class LieferantenComponent implements OnInit {
     if (this.iName == null || this.iLieferantenNr == null || this.iAnschrift == null || this.iAnsprechpartner == null) {
       alert('Bitte Tragen Sie etwas in die Felder ein!');
     } else {
-      this.ELEMENT_DATA.push({
+      this.elementData.push({
         Name: this.iName,
         LieferantenNr: this.iLieferantenNr,
         Anschrift: this.iAnschrift,
         Ansprechpartner: this.iAnsprechpartner
       });
-      console.log(this.ELEMENT_DATA);
-      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+      console.log(this.elementData);
+      this.dataSource = new MatTableDataSource(this.elementData);
     }
   }
 
@@ -87,25 +87,25 @@ export class LieferantenComponent implements OnInit {
    * second, the data of the entry is overwritten with the data from the input field
    */
   editTableEntry(): void {
-    this.editIndex = this.ELEMENT_DATA.findIndex(x => (
+    this.editIndex = this.elementData.findIndex(x => (
       x.Name === this.selected.Name &&
       x.LieferantenNr === this.selected.LieferantenNr &&
       x.Anschrift === this.selected.Anschrift &&
       x.Ansprechpartner === this.selected.Ansprechpartner)
     );
 
-    this.ELEMENT_DATA[this.editIndex].Name = this.iName;
-    this.ELEMENT_DATA[this.editIndex].LieferantenNr = this.iLieferantenNr;
-    this.ELEMENT_DATA[this.editIndex].Anschrift = this.iAnschrift;
-    this.ELEMENT_DATA[this.editIndex].Ansprechpartner = this.iAnsprechpartner;
+    this.elementData[this.editIndex].Name = this.iName;
+    this.elementData[this.editIndex].LieferantenNr = this.iLieferantenNr;
+    this.elementData[this.editIndex].Anschrift = this.iAnschrift;
+    this.elementData[this.editIndex].Ansprechpartner = this.iAnsprechpartner;
   }
 
   /**
    * function to delete an entry that is selected by the user
    */
   deleteTableEntry(): void {
-    this.ELEMENT_DATA = this.ELEMENT_DATA.filter(prod => prod !== this.selected);
-    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    this.elementData = this.elementData.filter(prod => prod !== this.selected);
+    this.dataSource = new MatTableDataSource(this.elementData);
     console.log('Deleted ' + this.selected);
   }
 
@@ -130,7 +130,7 @@ export class LieferantenComponent implements OnInit {
    */
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnDestroy(): void {
-    localStorage.setItem('LieferantData', JSON.stringify(this.ELEMENT_DATA));
+    localStorage.setItem('LieferantData', JSON.stringify(this.elementData));
   }
 
   /**
