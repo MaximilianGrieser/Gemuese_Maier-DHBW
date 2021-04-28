@@ -43,6 +43,7 @@ export class ProduzentenComponent implements OnInit {
   /**
    * functions to get data from the table input fields (text and drop-down)
    * function names indicate which field is read
+   * @param ebent is a key event
    */
   changeName(event: Event): void {
     this.iName = (event.target as HTMLInputElement).value;
@@ -60,7 +61,7 @@ export class ProduzentenComponent implements OnInit {
   /**
    * function to add the data entered by the user in the table form to the table
    */
-  add(): void {
+  addTableEntry(): void {
     this.ELEMENT_DATA.push(
     {Name: this.iName, ProduzentenNr: this.iProduzentenNr, Anschrift: this.iAnschrift, Ansprechpartner: this.iAnsprechpartner});
     console.log(this.ELEMENT_DATA);
@@ -72,7 +73,7 @@ export class ProduzentenComponent implements OnInit {
    * first the entry that is selected by the user is searched in the array cwith table entries
    * second, the data of the entry is overwritten with the data from the input field
    */
-  edit(): void {
+  editTableEntry(): void {
     this.editIndex = this.ELEMENT_DATA.findIndex(x => (
       x.Name === this.selected.Name &&
       x.ProduzentenNr === this.selected.ProduzentenNr &&
@@ -89,7 +90,7 @@ export class ProduzentenComponent implements OnInit {
   /**
    * function to delete an entry that is selected by the user
    */
-  delete(): void {
+  deleteTableEntry(): void {
     this.ELEMENT_DATA = this.ELEMENT_DATA.filter(prod => prod !== this.selected);
     this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
     console.log('Deleted ' + this.selected);

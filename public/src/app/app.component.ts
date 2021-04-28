@@ -24,11 +24,12 @@ export class AppComponent {
 
   constructor(private router: Router){
     this.initStorrage();
-    this.router.events.subscribe((event) => {
-      event instanceof NavigationEnd ? console.log(event.url) : null;
-    });
   }
 
+  /**
+   * function to load data from data.json file into local storage
+   * function is called on page loading
+   */
   initStorrage(): void {
     console.log(this.ELEMENT_DATA[0]);
 
