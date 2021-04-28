@@ -32,15 +32,15 @@ export class AppComponent {
   initStorrage(): void {
     console.log(this.ELEMENT_DATA[0]);
 
-    if ((localStorage.getItem('ProduktData'))) {
+    if (!(localStorage.getItem('ProduktData'))) {
       console.log(this.ELEMENT_DATA[0].Produkte);
       localStorage.setItem('ProduktData', JSON.stringify(this.ELEMENT_DATA[0].Produkte));
     }
-    if ((localStorage.getItem('LieferantData'))) {
+    if (!(localStorage.getItem('LieferantData'))) {
       console.log(this.ELEMENT_DATA[0].Lieferanten);
       localStorage.setItem('LieferantData', JSON.stringify(this.ELEMENT_DATA[0].Lieferanten));
     }
-    if ((localStorage.getItem('ProduzentData'))) {
+    if (!(localStorage.getItem('ProduzentData'))) {
       console.log(this.ELEMENT_DATA[0].Produzent);
       localStorage.setItem('ProduzentData', JSON.stringify(this.ELEMENT_DATA[0].Produzenten));
     }else{
