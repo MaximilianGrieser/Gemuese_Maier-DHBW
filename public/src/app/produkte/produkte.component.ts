@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { Lieferant } from '../lieferanten/lieferanten.component';
-import { Produzent } from '../produzenten/produzenten.component';
+import {Component, OnInit} from '@angular/core';
+import {MatTableDataSource} from '@angular/material/table';
+import {Lieferant} from '../lieferanten/lieferanten.component';
+import {Produzent} from '../produzenten/produzenten.component';
 
 /**
  * defines a 'Produkt' object (entry in the table)
@@ -53,7 +53,8 @@ export class ProdukteComponent implements OnInit {
   displayedColumns: string[] = ['Bezeichnung', 'Herkunft', 'Kategorie', 'Verkaufspreis', 'Lieferant',
     'Produzent', 'Anzahl'];
 
-  constructor() { }
+  constructor() {
+  }
 
   /**
    * function to load data from local storage and stores it in an array when component is loaded
@@ -81,21 +82,27 @@ export class ProdukteComponent implements OnInit {
     this.iBezeichnung = (event.target as HTMLInputElement).value;
     console.log(this.iBezeichnung);
   }
+
   changeHerkunft(event: Event): void {
     this.iHerkunft = (event.target as HTMLInputElement).value;
   }
+
   changeKategorie(event: Event): void {
     this.iKategorie = (event.target as HTMLInputElement).value;
   }
+
   changeVerkaufspreis(event: Event): void {
     this.iVerkaufspreis = parseInt((event.target as HTMLInputElement).value, 10);
   }
+
   changeLieferant(Lief: string): void {
     this.iLieferant = Lief;
   }
+
   changeProduzent(Prod: string): void {
     this.iProduzent = Prod;
   }
+
   changeAnzahl(event: Event): void {
     this.iAnzahl = parseInt((event.target as HTMLInputElement).value, 10);
   }
@@ -105,8 +112,15 @@ export class ProdukteComponent implements OnInit {
    */
   addTableEntry(): void {
     this.ELEMENT_DATA.push(
-    {Bezeichnung: this.iBezeichnung, Herkunft: this.iHerkunft, Kategorie: this.iKategorie,
-      Verkaufspreis: this.iVerkaufspreis, Lieferant: this.iLieferant, Produzent: this.iProduzent, Anzahl: this.iAnzahl});
+      {
+        Bezeichnung: this.iBezeichnung,
+        Herkunft: this.iHerkunft,
+        Kategorie: this.iKategorie,
+        Verkaufspreis: this.iVerkaufspreis,
+        Lieferant: this.iLieferant,
+        Produzent: this.iProduzent,
+        Anzahl: this.iAnzahl
+      });
     console.log(this.ELEMENT_DATA);
     this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
   }

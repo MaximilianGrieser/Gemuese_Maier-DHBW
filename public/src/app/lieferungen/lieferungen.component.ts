@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 
 /**
@@ -17,7 +17,14 @@ export interface PeriodicElement {
  * example entry/entries that will be shown in the table 'eingehende Lieferungen'
  */
 const ELEMENT_DATA: PeriodicElement[] = [
-  {Datum: '29.03.2021', Produzent: 'MysticFalls Gruenderfarm', Produkt: 'Eisenkraut', Menge: 5, Preis: 90, Lieferschein: '29-03-21'}
+  {
+    Datum: '29.03.2021',
+    Produzent: 'MysticFalls Gruenderfarm',
+    Produkt: 'Eisenkraut',
+    Menge: 5,
+    Preis: 90,
+    Lieferschein: '29-03-21'
+  }
 ];
 
 @Component({
@@ -27,7 +34,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class LieferungenComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

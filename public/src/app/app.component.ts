@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { Router, NavigationEnd  } from '@angular/router';
+import {Component} from '@angular/core';
+import {Router, NavigationEnd} from '@angular/router';
 import * as datafile from './data.json';
-import { Produkt } from './produkte/produkte.component';
-import { Lieferant } from './lieferanten/lieferanten.component';
-import { Produzent } from './produzenten/produzenten.component';
+import {Produkt} from './produkte/produkte.component';
+import {Lieferant} from './lieferanten/lieferanten.component';
+import {Produzent} from './produzenten/produzenten.component';
 
 export interface Data {
   Produkte: Produkt[];
@@ -22,7 +22,7 @@ export class AppComponent {
 
   ELEMENT_DATA: Data = (datafile as any).default;
 
-  constructor(private router: Router){
+  constructor(private router: Router) {
     this.initStorrage();
   }
 
@@ -44,7 +44,7 @@ export class AppComponent {
     if (!(localStorage.getItem('ProduzentData'))) {
       console.log(this.ELEMENT_DATA[0].Produzent);
       localStorage.setItem('ProduzentData', JSON.stringify(this.ELEMENT_DATA[0].Produzenten));
-    }else{
+    } else {
       console.log('Produzent: ' + localStorage.getItem('ProduzentData'));
       console.log('Produkt: ' + localStorage.getItem('ProduktData'));
       console.log('Lieferant: ' + localStorage.getItem('LieferantData'));
