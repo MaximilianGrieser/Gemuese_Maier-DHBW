@@ -66,11 +66,15 @@ export class ProdukteComponent implements OnInit {
     this.elementData = JSON.parse(localStorage.getItem('ProduktData'));
     this.Lieferanten = JSON.parse(localStorage.getItem('LieferantData'));
     this.Lieferanten.forEach(lief => {
-      this.LieferantenDropDown.push({value: lief.Name});
+      this.LieferantenDropDown.push({
+        value: lief.Name
+      });
     });
     this.Produzenten = JSON.parse(localStorage.getItem('ProduzentData'));
     this.Produzenten.forEach(prod => {
-      this.ProduzentenDropDown.push({value: prod.Name});
+      this.ProduzentenDropDown.push({
+        value: prod.Name
+      });
     });
     this.dataSource = new MatTableDataSource(this.elementData);
   }
