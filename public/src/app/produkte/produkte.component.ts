@@ -79,7 +79,6 @@ export class ProdukteComponent implements OnInit {
    */
   changeBezeichnung(event: Event): void {
     this.iBezeichnung = (event.target as HTMLInputElement).value;
-    console.log(this.iBezeichnung);
   }
   changeHerkunft(event: Event): void {
     this.iHerkunft = (event.target as HTMLInputElement).value;
@@ -104,11 +103,16 @@ export class ProdukteComponent implements OnInit {
    * function to add the data entered by the user in the table form to the table
    */
   addTableEntry(): void {
-    this.ELEMENT_DATA.push(
-    {Bezeichnung: this.iBezeichnung, Herkunft: this.iHerkunft, Kategorie: this.iKategorie,
-      Verkaufspreis: this.iVerkaufspreis, Lieferant: this.iLieferant, Produzent: this.iProduzent, Anzahl: this.iAnzahl});
-    console.log(this.ELEMENT_DATA);
-    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    if(this.iBezeichnung == null || this.iHerkunft == null ||  this.iKategorie == null || this.iVerkaufspreis == null || this.iLieferant == null || this.iProduzent == null || this.iAnzahl == null) {
+      alert("Bitte Trage etwas in die Felder ein!");
+    }else {    
+      this.ELEMENT_DATA.push({
+        Bezeichnung: this.iBezeichnung, Herkunft: this.iHerkunft, Kategorie: this.iKategorie,
+        Verkaufspreis: this.iVerkaufspreis, Lieferant: this.iLieferant, Produzent: this.iProduzent, Anzahl: this.iAnzahl
+      });
+      console.log(this.ELEMENT_DATA);
+      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    }
   }
 
   /**

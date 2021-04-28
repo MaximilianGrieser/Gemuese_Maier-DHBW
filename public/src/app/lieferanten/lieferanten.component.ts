@@ -62,10 +62,15 @@ export class LieferantenComponent implements OnInit {
    * function to add the data entered by the user in the table form to the table
    */
   addTableEntry(): void {
-    this.ELEMENT_DATA.push(
-    {Name: this.iName, LieferantenNr: this.iLieferantenNr, Anschrift: this.iAnschrift, Ansprechpartner: this.iAnsprechpartner});
-    console.log(this.ELEMENT_DATA);
-    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    if(this.iName == null || this.iLieferantenNr == null ||  this.iAnschrift == null || this.iAnsprechpartner == null) {
+      alert("Bitte Trage etwas in die Felder ein!");
+    }else {
+      this.ELEMENT_DATA.push({
+        Name: this.iName, LieferantenNr: this.iLieferantenNr, Anschrift: this.iAnschrift, Ansprechpartner: this.iAnsprechpartner
+      });
+      console.log(this.ELEMENT_DATA);
+      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    }
   }
 
   /**
