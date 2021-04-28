@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 
 /**
@@ -18,9 +18,7 @@ export interface Lieferant {
 })
 export class LieferantenComponent implements OnInit {
 
-  constructor() {
-  }
-
+  constructor() { }
   iName: string;
   iLieferantenNr: number;
   iAnschrift: string;
@@ -50,15 +48,12 @@ export class LieferantenComponent implements OnInit {
   changeName(event: Event): void {
     this.iName = (event.target as HTMLInputElement).value;
   }
-
   changeLieferantenNr(event: Event): void {
     this.iLieferantenNr = parseInt((event.target as HTMLInputElement).value, 10);
   }
-
   changeAnschrift(event: Event): void {
     this.iAnschrift = (event.target as HTMLInputElement).value;
   }
-
   changeAnsprechpartner(event: Event): void {
     this.iAnsprechpartner = (event.target as HTMLInputElement).value;
   }
@@ -67,15 +62,15 @@ export class LieferantenComponent implements OnInit {
    * function to add the data entered by the user in the table form to the table
    */
   addTableEntry(): void {
-    this.ELEMENT_DATA.push(
-      {
-        Name: this.iName,
-        LieferantenNr: this.iLieferantenNr,
-        Anschrift: this.iAnschrift,
-        Ansprechpartner: this.iAnsprechpartner
+    if(this.iName == null || this.iLieferantenNr == null ||  this.iAnschrift == null || this.iAnsprechpartner == null) {
+      alert("Bitte Trage etwas in die Felder ein!");
+    }else {
+      this.ELEMENT_DATA.push({
+        Name: this.iName, LieferantenNr: this.iLieferantenNr, Anschrift: this.iAnschrift, Ansprechpartner: this.iAnsprechpartner
       });
-    console.log(this.ELEMENT_DATA);
-    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+      console.log(this.ELEMENT_DATA);
+      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    }
   }
 
   /**
