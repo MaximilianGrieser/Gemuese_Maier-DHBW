@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 /**
  * defines the columns of the table 'eingehende Lieferungen'
  */
+// tslint:disable-next-line:class-name
 export interface periodicElement {
   Datum: string;
   Produzent: string;

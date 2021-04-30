@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-informationen',
@@ -7,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 
 /**
- * Component for the "i" page. Stores all information about the software. 
+ * Component for the "i" page. Stores all information about the software.
  */
 export class InformationenComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

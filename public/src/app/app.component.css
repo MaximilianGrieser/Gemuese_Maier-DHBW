@@ -1,47 +1,47 @@
 main {
-    max-width: 900px;
-    margin: 0rem auto;
+  max-width: 900px;
+  margin: 0rem auto;
 }
 
 .example-spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .header-upper {
-    width: 100%;
-    background-color: green;
+  width: 100%;
+  background-color: green;
 }
 
 .header-lower {
-    width: 100%;
-    background-color: rgb(181, 231, 181);
-    overflow-wrap: break-word;
+  width: 100%;
+  background-color: rgb(181, 231, 181);
+  overflow-wrap: break-word;
 }
 
 .nav-button {
-    font-family:Calibri;
-    font-size: 16px;
-    color: green; /* white wenn im Fenster aktiv */
-    background-color: white; /* green wenn im Fenster aktiv */
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-right: 0.5em;
-    margin-left: 0.5em;
+  font-family: Calibri;
+  font-size: 16px;
+  color: green; /* white wenn im Fenster aktiv */
+  background-color: white; /* green wenn im Fenster aktiv */
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
 }
 
 .active-link {
-    background-color: green;
-    color: white;
+  background-color: green;
+  color: white;
 }
 
 mat-icon {
-    vertical-align: top;
-    color: white;
-    font-size: 3em;
+  vertical-align: top;
+  color: white;
+  font-size: 3em;
 }
 
-div.content{
-    width: 100%;
-    height: 100vh;
-    background-color: white;
+div.content {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
 }

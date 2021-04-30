@@ -1,111 +1,111 @@
 <div class="body">
-    <!-- buttons to toggle between the views "ausgehende Lieferungen" and "eingehende Lieferungen" -->
-    <div class="toggleView">
-        <button mat-raised-button [routerLink]="['/lieferungen']" routerLinkActive="active-view" class="toggleButton">
-            Eingehende Lieferungen
-        </button>
-        <button mat-raised-button [routerLink]="['/ausLieferungen']" class="toggleButton">
-            Ausgehende Lieferungen
-        </button>
-    </div>
+  <!-- buttons to toggle between the views "ausgehende Lieferungen" and "eingehende Lieferungen" -->
+  <div class="toggleView">
+    <button mat-raised-button [routerLink]="['/lieferungen']" routerLinkActive="active-view" class="toggleButton">
+      Eingehende Lieferungen
+    </button>
+    <button mat-raised-button [routerLink]="['/ausLieferungen']" class="toggleButton">
+      Ausgehende Lieferungen
+    </button>
+  </div>
 
-    <!-- filter of the table, lets the user search for a table entry -->
-    <mat-form-field class="table-filter">
-        <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  <!-- filter of the table, lets the user search for a table entry -->
+  <mat-form-field class="table-filter">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  </mat-form-field>
+
+  <!-- Input form of the table for adding and modyfing entries -->
+  <div class="table-input-group">
+    <mat-form-field class="table-input">
+      <mat-label>Datum</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
     </mat-form-field>
 
-    <!-- Input form of the table for adding and modyfing entries -->
-    <div class="table-input-group">
-        <mat-form-field class="table-input">
-            <mat-label>Datum</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-        </mat-form-field>
-
-        <mat-form-field class="table-input">
-            <mat-label>Produzent</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-        </mat-form-field>
+    <mat-form-field class="table-input">
+      <mat-label>Produzent</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
 
 
-        <mat-form-field class="table-input">
-            <mat-label>Produkt</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-        </mat-form-field>
+    <mat-form-field class="table-input">
+      <mat-label>Produkt</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
 
 
-        <mat-form-field class="table-input">
-            <mat-label>Menge</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-        </mat-form-field>
+    <mat-form-field class="table-input">
+      <mat-label>Menge</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
 
-        <mat-form-field class="table-input">
-            <mat-label>Preis</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-        </mat-form-field>
+    <mat-form-field class="table-input">
+      <mat-label>Preis</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
 
-        <mat-form-field class="table-input">
-            <mat-label>Lieferschein</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-        </mat-form-field>
-    </div>
+    <mat-form-field class="table-input">
+      <mat-label>Lieferschein</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+  </div>
 
-    <!-- table with content -->
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- table with content -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-        <ng-container matColumnDef="Datum">
-            <th mat-header-cell *matHeaderCellDef> Datum </th>
-            <td mat-cell *matCellDef="let element"> {{element.Datum}} </td>
-        </ng-container>
+    <ng-container matColumnDef="Datum">
+      <th mat-header-cell *matHeaderCellDef> Datum</th>
+      <td mat-cell *matCellDef="let element"> {{element.Datum}} </td>
+    </ng-container>
 
-        <ng-container matColumnDef="Produzent">
-            <th mat-header-cell *matHeaderCellDef> Produzent </th>
-            <td mat-cell *matCellDef="let element"> {{element.Produzent}} </td>
-        </ng-container>
+    <ng-container matColumnDef="Produzent">
+      <th mat-header-cell *matHeaderCellDef> Produzent</th>
+      <td mat-cell *matCellDef="let element"> {{element.Produzent}} </td>
+    </ng-container>
 
-        <ng-container matColumnDef="Produkt">
-            <th mat-header-cell *matHeaderCellDef> Produkt </th>
-            <td mat-cell *matCellDef="let element"> {{element.Produkt}} </td>
-        </ng-container>
+    <ng-container matColumnDef="Produkt">
+      <th mat-header-cell *matHeaderCellDef> Produkt</th>
+      <td mat-cell *matCellDef="let element"> {{element.Produkt}} </td>
+    </ng-container>
 
-        <ng-container matColumnDef="Menge">
-            <th mat-header-cell *matHeaderCellDef> Menge </th>
-            <td mat-cell *matCellDef="let element"> {{element.Menge}} </td>
-        </ng-container>
+    <ng-container matColumnDef="Menge">
+      <th mat-header-cell *matHeaderCellDef> Menge</th>
+      <td mat-cell *matCellDef="let element"> {{element.Menge}} </td>
+    </ng-container>
 
-        <ng-container matColumnDef="Preis">
-            <th mat-header-cell *matHeaderCellDef> Preis </th>
-            <td mat-cell *matCellDef="let element"> {{element.Preis}} </td>
-        </ng-container>
+    <ng-container matColumnDef="Preis">
+      <th mat-header-cell *matHeaderCellDef> Preis</th>
+      <td mat-cell *matCellDef="let element"> {{element.Preis}} </td>
+    </ng-container>
 
-        <ng-container matColumnDef="Lieferschein">
-            <th mat-header-cell *matHeaderCellDef> Lieferschein </th>
-            <td mat-cell *matCellDef="let element"> {{element.Lieferschein}} </td>
-        </ng-container>
+    <ng-container matColumnDef="Lieferschein">
+      <th mat-header-cell *matHeaderCellDef> Lieferschein</th>
+      <td mat-cell *matCellDef="let element"> {{element.Lieferschein}} </td>
+    </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-        <!-- Row shown when there is no matching data. -->
-        <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-        </tr>
-    </table>
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
 
-    <!-- buttons to manipulate entries and see their "Lieferschein" -->
-    <div class="buttons">
-        <button mat-raised-button class="Button">
-            Lieferung Hinzufügen
-        </button>
-        <button mat-raised-button class="Button">
-            Lieferung Bearbeiten
-        </button>
-        <button mat-raised-button class="Button">
-            Lieferung Löschen
-        </button>
-        <button mat-raised-button class="Button">
-            Lieferschein einsehen
-        </button>
-    </div>
+  <!-- buttons to manipulate entries and see their "Lieferschein" -->
+  <div class="buttons">
+    <button mat-raised-button class="Button">
+      Lieferung Hinzufügen
+    </button>
+    <button mat-raised-button class="Button">
+      Lieferung Bearbeiten
+    </button>
+    <button mat-raised-button class="Button">
+      Lieferung Löschen
+    </button>
+    <button mat-raised-button class="Button">
+      Lieferschein einsehen
+    </button>
+  </div>
 
 </div>

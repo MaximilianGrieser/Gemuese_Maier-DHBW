@@ -64,10 +64,10 @@ export class LieferantenComponent implements OnInit {
    * function to add the data entered by the user in the table form to the table
    */
   addTableEntry(): void {
-    if (this.NameIndex == null 
-        || this.LieferantenNrIndex == null 
-        || this.AnschriftIndex == null 
-        || this.AnsprechpartnerIndex == null) {
+    if (this.NameIndex == null
+      || this.LieferantenNrIndex == null
+      || this.AnschriftIndex == null
+      || this.AnsprechpartnerIndex == null) {
       alert('Bitte Tragen Sie etwas in die Felder ein!');
     } else {
       this.elementData.push({

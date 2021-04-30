@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 
 /**
  * defines the columns of the table 'Kunden'
  */
+// tslint:disable-next-line:class-name
 export interface periodicElement {
   Name: string;
   KundenNr: number;
@@ -15,10 +16,12 @@ export interface periodicElement {
  * example entry/entries that will be shown in the table 'Kunden'
  */
 const elementData: periodicElement[] = [
-  {Name: 'Saltzmann Markt', 
-    KundenNr: 1864, 
-    Anschrift: 'Nackarstrasse 134, Stuttgart', 
-    Ansprechpartner: 'Alaric Saltzmann'}
+  {
+    Name: 'Saltzmann Markt',
+    KundenNr: 1864,
+    Anschrift: 'Nackarstrasse 134, Stuttgart',
+    Ansprechpartner: 'Alaric Saltzmann'
+  }
 ];
 
 
@@ -28,7 +31,7 @@ const elementData: periodicElement[] = [
   styleUrls: ['./kunden.component.css']
 })
 /**
- * component for the "Kunden" page. Stores all information about customers. 
+ * component for the "Kunden" page. Stores all information about customers.
  */
 export class KundenComponent implements OnInit {
 

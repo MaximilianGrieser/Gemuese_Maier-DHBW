@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LagerComponent } from './lager.component';
+import {LagerComponent} from './lager.component';
 
 describe('LagerComponent', () => {
   let component: LagerComponent;
@@ -8,9 +8,9 @@ describe('LagerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LagerComponent ]
+      declarations: [LagerComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

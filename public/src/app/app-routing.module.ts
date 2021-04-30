@@ -17,26 +17,26 @@ import {ErrorComponent} from './error/error.component';
  * defines the URL path of every component
  */
 const routes: Routes = [
-    {path: '', redirectTo: '/bestand', pathMatch: 'full'},
-    {path: 'ausLieferungen', component: AusLieferungenComponent},
-    {path: 'bestand', component: BestandComponent},
-    {path: 'produkte', component: ProdukteComponent},
-    {path: 'lager', component: LagerComponent},
-    {path: 'lieferanten', component: LieferantenComponent},
-    {path: 'lieferungen', component: LieferungenComponent},
-    {path: 'kunden', component: KundenComponent},
-    {path: 'produzenten', component: ProduzentenComponent},
-    {path: 'informationen', component: InformationenComponent},
-    {path: '**', component: ErrorComponent}
+  {path: '', redirectTo: '/bestand', pathMatch: 'full'},
+  {path: 'ausLieferungen', component: AusLieferungenComponent},
+  {path: 'bestand', component: BestandComponent},
+  {path: 'produkte', component: ProdukteComponent},
+  {path: 'lager', component: LagerComponent},
+  {path: 'lieferanten', component: LieferantenComponent},
+  {path: 'lieferungen', component: LieferungenComponent},
+  {path: 'kunden', component: KundenComponent},
+  {path: 'produzenten', component: ProduzentenComponent},
+  {path: 'informationen', component: InformationenComponent},
+  {path: '**', component: ErrorComponent}
 ];
 
 @NgModule({
-    declarations: [],
-    imports: [
-        CommonModule,
-        RouterModule.forRoot(routes, {useHash: true})
-    ],
-    exports: [RouterModule]
+  declarations: [],
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(routes, {useHash: true})
+  ],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {
 }

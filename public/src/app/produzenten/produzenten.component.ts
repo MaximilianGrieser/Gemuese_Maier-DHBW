@@ -18,7 +18,7 @@ export interface Produzent {
 })
 
 /**
- * Component for the "Produzent" page. Stores all information about product producers. 
+ * Component for the "Produzent" page. Stores all information about product producers.
  */
 export class ProduzentenComponent implements OnInit {
   NameIndex: string;
@@ -67,9 +67,9 @@ export class ProduzentenComponent implements OnInit {
    * function to add the data entered by the user in the table form to the table
    */
   addTableEntry(): void {
-    if (this.NameIndex == null 
-        || this.ProduzentenNrIndex == null 
-        || this.AnschriftIndex == null 
+    if (this.NameIndex == null
+        || this.ProduzentenNrIndex == null
+        || this.AnschriftIndex == null
         || this.AnsprechpartnerIndex == null) {
       alert('Bitte Trage etwas in die Felder ein!');
     } else {

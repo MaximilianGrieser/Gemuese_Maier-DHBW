@@ -1,112 +1,112 @@
 <div class="body">
-    <!-- filter of the table, lets the user search for a table entry -->
-    <mat-form-field class="table-filter">
-      <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+  <!-- filter of the table, lets the user search for a table entry -->
+  <mat-form-field class="table-filter">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+  </mat-form-field>
+  <!-- input form of the table for adding and modifying entries -->
+  <div class="table-input-group">
+    <mat-form-field class="table-input">
+      <mat-label>Bezeichnung</mat-label>
+      <input matInput id="i-bez" (keyup)="changeBezeichnung($event)" placeholder="Bezeichnung" #input>
     </mat-form-field>
-    <!-- input form of the table for adding and modifying entries -->
-    <div class="table-input-group">
-      <mat-form-field class="table-input">
-        <mat-label>Bezeichnung</mat-label>
-        <input matInput id="i-bez" (keyup)="changeBezeichnung($event)" placeholder="Bezeichnung" #input>
-      </mat-form-field>
-  
-      <mat-form-field class="table-input">
-        <mat-label>Herkunft</mat-label>
-        <input matInput id="i-her" (keyup)="changeHerkunft($event)" placeholder="Herkunft" #input>
-      </mat-form-field>
-  
-      <mat-form-field class="table-input">
-        <mat-label>Kategorie</mat-label>
-        <input matInput id="i-kat" (keyup)="changeKategorie($event)" placeholder="Kategorie" #input>
-      </mat-form-field>
-  
-      <mat-form-field class="table-input">
-        <mat-label>Verkaufspreis</mat-label>
-        <input matInput id="i-vp" (keyup)="changeVerkaufspreis($event)" placeholder="Verkaufspreis" #input>
-      </mat-form-field>
 
-      <mat-form-field class="table-input">
-        <mat-label>Lieferant</mat-label>
-        <mat-select id="i-lief" (selectionChange)="changeLieferant($event.value)" [(value)]="LieferantenDropDownContent">
-          <mat-option *ngFor="let element of LieferantenDropDown" [value]="element.value">
-            {{element.value}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+    <mat-form-field class="table-input">
+      <mat-label>Herkunft</mat-label>
+      <input matInput id="i-her" (keyup)="changeHerkunft($event)" placeholder="Herkunft" #input>
+    </mat-form-field>
 
-      <mat-form-field class="table-input">
-        <mat-label>Produzent</mat-label>
-        <mat-select id="i-prod" (selectionChange)="changeProduzent($event.value)" [(value)]="ProduzentenDropDownContent">
-          <mat-option *ngFor="let element of ProduzentenDropDown" [value]="element.value">
-            {{element.value}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+    <mat-form-field class="table-input">
+      <mat-label>Kategorie</mat-label>
+      <input matInput id="i-kat" (keyup)="changeKategorie($event)" placeholder="Kategorie" #input>
+    </mat-form-field>
 
-      <mat-form-field class="table-input">
-        <mat-label>Anzahl</mat-label>
-        <input matInput id="i-anz" (keyup)="changeAnzahl($event)" placeholder="Anzahl" #input>
-      </mat-form-field>
-    </div>
+    <mat-form-field class="table-input">
+      <mat-label>Verkaufspreis</mat-label>
+      <input matInput id="i-vp" (keyup)="changeVerkaufspreis($event)" placeholder="Verkaufspreis" #input>
+    </mat-form-field>
 
-    <!-- table with content -->    
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    
-      <ng-container matColumnDef="Bezeichnung">
-        <th mat-header-cell *matHeaderCellDef> Bezeichnung </th>
-        <td mat-cell *matCellDef="let element"> {{element.Bezeichnung}} </td>
-      </ng-container>
-    
-      <ng-container matColumnDef="Herkunft">
-        <th mat-header-cell *matHeaderCellDef> Herkunft </th>
-        <td mat-cell *matCellDef="let element"> {{element.Herkunft}} </td>
-      </ng-container>
-    
-      <ng-container matColumnDef="Kategorie">
-        <th mat-header-cell *matHeaderCellDef> Kategorie </th>
-        <td mat-cell *matCellDef="let element"> {{element.Kategorie}} </td>
-      </ng-container>
-    
-      <ng-container matColumnDef="Verkaufspreis">
-        <th mat-header-cell *matHeaderCellDef> Verkaufspreis </th>
-        <td mat-cell *matCellDef="let element"> {{element.Verkaufspreis}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="Lieferant">
-        <th mat-header-cell *matHeaderCellDef> Lieferant </th>
-        <td mat-cell *matCellDef="let element"> {{element.Lieferant}} </td>
-      </ng-container>
+    <mat-form-field class="table-input">
+      <mat-label>Lieferant</mat-label>
+      <mat-select id="i-lief" (selectionChange)="changeLieferant($event.value)" [(value)]="LieferantenDropDownContent">
+        <mat-option *ngFor="let element of LieferantenDropDown" [value]="element.value">
+          {{element.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-      <ng-container matColumnDef="Produzent">
-        <th mat-header-cell *matHeaderCellDef> Produzent </th>
-        <td mat-cell *matCellDef="let element"> {{element.Produzent}} </td>
-      </ng-container>
+    <mat-form-field class="table-input">
+      <mat-label>Produzent</mat-label>
+      <mat-select id="i-prod" (selectionChange)="changeProduzent($event.value)" [(value)]="ProduzentenDropDownContent">
+        <mat-option *ngFor="let element of ProduzentenDropDown" [value]="element.value">
+          {{element.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-      <ng-container matColumnDef="Anzahl">
-        <th mat-header-cell *matHeaderCellDef> Anzahl </th>
-        <td mat-cell *matCellDef="let element"> {{element.Anzahl}} </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row)"></tr>
-    
-      <!-- Row shown when there is no matching data. -->
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-      </tr>
-    </table>
-    <!-- buttons to manipulate entries in the table and see the "Preisliste" -->
-    <div class="buttons">
-      <button mat-raised-button class="Button" (click)="addTableEntry()">
-        Produkt Hinzufügen
-      </button>
-      <button mat-raised-button class="Button" (click)="editTableEntry()">
-        Produkt Bearbeiten
-      </button>
-      <button mat-raised-button class="Button" (click)="deleteTableEntry()">
-        Produkt Löschen
-      </button>
-    </div>
-  
+    <mat-form-field class="table-input">
+      <mat-label>Anzahl</mat-label>
+      <input matInput id="i-anz" (keyup)="changeAnzahl($event)" placeholder="Anzahl" #input>
+    </mat-form-field>
   </div>
+
+  <!-- table with content -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="Bezeichnung">
+      <th mat-header-cell *matHeaderCellDef> Bezeichnung</th>
+      <td mat-cell *matCellDef="let element"> {{element.Bezeichnung}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Herkunft">
+      <th mat-header-cell *matHeaderCellDef> Herkunft</th>
+      <td mat-cell *matCellDef="let element"> {{element.Herkunft}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Kategorie">
+      <th mat-header-cell *matHeaderCellDef> Kategorie</th>
+      <td mat-cell *matCellDef="let element"> {{element.Kategorie}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Verkaufspreis">
+      <th mat-header-cell *matHeaderCellDef> Verkaufspreis</th>
+      <td mat-cell *matCellDef="let element"> {{element.Verkaufspreis}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Lieferant">
+      <th mat-header-cell *matHeaderCellDef> Lieferant</th>
+      <td mat-cell *matCellDef="let element"> {{element.Lieferant}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Produzent">
+      <th mat-header-cell *matHeaderCellDef> Produzent</th>
+      <td mat-cell *matCellDef="let element"> {{element.Produzent}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Anzahl">
+      <th mat-header-cell *matHeaderCellDef> Anzahl</th>
+      <td mat-cell *matCellDef="let element"> {{element.Anzahl}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row)"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+  <!-- buttons to manipulate entries in the table and see the "Preisliste" -->
+  <div class="buttons">
+    <button mat-raised-button class="Button" (click)="addTableEntry()">
+      Produkt Hinzufügen
+    </button>
+    <button mat-raised-button class="Button" (click)="editTableEntry()">
+      Produkt Bearbeiten
+    </button>
+    <button mat-raised-button class="Button" (click)="deleteTableEntry()">
+      Produkt Löschen
+    </button>
+  </div>
+
+</div>

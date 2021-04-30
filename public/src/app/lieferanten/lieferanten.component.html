@@ -1,79 +1,79 @@
 <div class="body">
-    <!-- filter of the table, lets the user search for a table entry -->
-    <mat-form-field class="table-filter">
-        <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+  <!-- filter of the table, lets the user search for a table entry -->
+  <mat-form-field class="table-filter">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+  </mat-form-field>
+
+  <!-- input form of the table for adding and modifying entries -->
+  <div class="table-input-group">
+    <mat-form-field class="table-input">
+      <mat-label>Name</mat-label>
+      <input matInput id="i-Name" (keyup)="changeName($event)" placeholder="Name" #input>
     </mat-form-field>
 
-    <!-- input form of the table for adding and modifying entries -->
-    <div class="table-input-group">
-        <mat-form-field class="table-input">
-            <mat-label>Name</mat-label>
-            <input matInput id="i-Name" (keyup)="changeName($event)" placeholder="Name" #input>
-        </mat-form-field>
-
-        <mat-form-field class="table-input">
-            <mat-label>Lieferanten-Nr.</mat-label>
-            <input matInput id="i-Lief" (keyup)="changeLieferantenNr($event)" placeholder="Lieferanten-Nr" #input>
-        </mat-form-field>
+    <mat-form-field class="table-input">
+      <mat-label>Lieferanten-Nr.</mat-label>
+      <input matInput id="i-Lief" (keyup)="changeLieferantenNr($event)" placeholder="Lieferanten-Nr" #input>
+    </mat-form-field>
 
 
-        <mat-form-field class="table-input">
-            <mat-label>Anschrift</mat-label>
-            <input matInput id="i-ans" (keyup)="changeAnschrift($event)" placeholder="Anschrift" #input>
-        </mat-form-field>
+    <mat-form-field class="table-input">
+      <mat-label>Anschrift</mat-label>
+      <input matInput id="i-ans" (keyup)="changeAnschrift($event)" placeholder="Anschrift" #input>
+    </mat-form-field>
 
 
-        <mat-form-field class="table-input">
-            <mat-label>Ansprechpartner</mat-label>
-            <input matInput id="i-anp" (keyup)="changeAnsprechpartner($event)" placeholder="Ansprechpartner" #input>
-        </mat-form-field>
-    </div>
+    <mat-form-field class="table-input">
+      <mat-label>Ansprechpartner</mat-label>
+      <input matInput id="i-anp" (keyup)="changeAnsprechpartner($event)" placeholder="Ansprechpartner" #input>
+    </mat-form-field>
+  </div>
 
-    <!-- table with content -->
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- table with content -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-        <ng-container matColumnDef="Name">
-            <th mat-header-cell *matHeaderCellDef> Name</th>
-            <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
-        </ng-container>
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef> Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+    </ng-container>
 
-        <ng-container matColumnDef="Lieferanten-Nr.">
-            <th mat-header-cell *matHeaderCellDef> Lieferanten-Nr.</th>
-            <td mat-cell *matCellDef="let element"> {{element.LieferantenNr}} </td>
-        </ng-container>
+    <ng-container matColumnDef="Lieferanten-Nr.">
+      <th mat-header-cell *matHeaderCellDef> Lieferanten-Nr.</th>
+      <td mat-cell *matCellDef="let element"> {{element.LieferantenNr}} </td>
+    </ng-container>
 
-        <ng-container matColumnDef="Anschrift">
-            <th mat-header-cell *matHeaderCellDef> Anschrift</th>
-            <td mat-cell *matCellDef="let element"> {{element.Anschrift}} </td>
-        </ng-container>
+    <ng-container matColumnDef="Anschrift">
+      <th mat-header-cell *matHeaderCellDef> Anschrift</th>
+      <td mat-cell *matCellDef="let element"> {{element.Anschrift}} </td>
+    </ng-container>
 
-        <ng-container matColumnDef="Ansprechpartner">
-            <th mat-header-cell *matHeaderCellDef> Ansprechpartner</th>
-            <td mat-cell *matCellDef="let element"> {{element.Ansprechpartner}} </td>
-        </ng-container>
+    <ng-container matColumnDef="Ansprechpartner">
+      <th mat-header-cell *matHeaderCellDef> Ansprechpartner</th>
+      <td mat-cell *matCellDef="let element"> {{element.Ansprechpartner}} </td>
+    </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row)"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row)"></tr>
 
-        <!-- Row shown when there is no matching data. -->
-        <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-        </tr>
-    </table>
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
 
-    <!-- buttons to manipulate entries in the table -->
-    <div class="buttons">
-        <button mat-raised-button class="Button" (click)="addTableEntry()">
-            Lieferant Hinzufügen
-        </button>
-        <button mat-raised-button class="Button" (click)="editTableEntry()">
-            Lieferant Bearbeiten
-        </button>
-        <button mat-raised-button class="Button" (click)="deleteTableEntry()">
-            Lieferant Löschen
-        </button>
-    </div>
+  <!-- buttons to manipulate entries in the table -->
+  <div class="buttons">
+    <button mat-raised-button class="Button" (click)="addTableEntry()">
+      Lieferant Hinzufügen
+    </button>
+    <button mat-raised-button class="Button" (click)="editTableEntry()">
+      Lieferant Bearbeiten
+    </button>
+    <button mat-raised-button class="Button" (click)="deleteTableEntry()">
+      Lieferant Löschen
+    </button>
+  </div>
 
 </div>
 

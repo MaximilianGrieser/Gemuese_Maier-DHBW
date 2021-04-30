@@ -19,6 +19,7 @@ export interface Produkt {
 /**
  * defines a drop-down object in the table
  */
+// tslint:disable-next-line:class-name
 interface dropDown {
   value: string;
 }
@@ -118,22 +119,22 @@ export class ProdukteComponent implements OnInit {
    * function to add the data entered by the user in the table form to the table
    */
   addTableEntry(): void {
-    if (this.BezeichnungIndex == null 
-        || this.HerkunftIndex == null 
-        || this.KategorieIndex == null 
+    if (this.BezeichnungIndex == null
+        || this.HerkunftIndex == null
+        || this.KategorieIndex == null
         || this.VerkaufspreisIndex == null
-        || this.LieferantIndex == null 
-        || this.ProduzentIndex == null 
+        || this.LieferantIndex == null
+        || this.ProduzentIndex == null
         || this.AnzahlIndex == null) {
       alert('Bitte Tragen Sie etwas in die Felder ein!');
     } else {
       this.elementData.push({
-        Bezeichnung: this.BezeichnungIndex, 
-        Herkunft: this.HerkunftIndex, 
+        Bezeichnung: this.BezeichnungIndex,
+        Herkunft: this.HerkunftIndex,
         Kategorie: this.KategorieIndex,
-        Verkaufspreis: this.VerkaufspreisIndex, 
-        Lieferant: this.LieferantIndex, 
-        Produzent: this.ProduzentIndex, 
+        Verkaufspreis: this.VerkaufspreisIndex,
+        Lieferant: this.LieferantIndex,
+        Produzent: this.ProduzentIndex,
         Anzahl: this.AnzahlIndex
       });
       console.log(this.elementData);

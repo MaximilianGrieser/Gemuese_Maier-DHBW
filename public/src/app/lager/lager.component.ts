@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import {Component, OnInit} from '@angular/core';
+import {MatTableDataSource} from '@angular/material/table';
 
 /**
  * defines the columns of the table 'Lager'
  */
+// tslint:disable-next-line:class-name
 export interface periodicElement {
   Regal: string;
   Standort: string;
@@ -17,7 +18,7 @@ export interface periodicElement {
 })
 
 /**
- * component for the "Bestand" page. Stores all information about products in stock. 
+ * component for the "Bestand" page. Stores all information about products in stock.
  */
 export class LagerComponent implements OnInit {
 
